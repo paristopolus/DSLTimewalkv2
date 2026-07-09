@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: PackageVersionLogger
   m_EditorClassIdentifier: 
   packageVersions:
-  - com.artanim.common@file:C:\Users\pflex\Documents\_git\DSLTimewalk\Packages\dependencies\com.artanim.common-9.2.3.tgz
+  - com.artanim.common@file:D:\UnityProjects\DSLTimewalk\Packages\dependencies\com.artanim.common-9.2.3.tgz
     version 9.2.3
-  - com.dreamscape.coresdk@file:C:\Users\pflex\Documents\_git\DSLTimewalk\Packages\dependencies\com.dreamscape.coresdk-9.2.3.tgz
+  - com.dreamscape.coresdk@file:D:\UnityProjects\DSLTimewalk\Packages\dependencies\com.dreamscape.coresdk-9.2.3.tgz
     version 9.2.3
-  - com.dreamscape.haptics@file:C:\Users\pflex\Documents\_git\DSLTimewalk\Packages\dependencies\com.dreamscape.haptics-9.2.3.tgz
+  - com.dreamscape.haptics@file:D:\UnityProjects\DSLTimewalk\Packages\dependencies\com.dreamscape.haptics-9.2.3.tgz
     version 9.2.3
-  - com.dreamscape.voip@file:C:\Users\pflex\Documents\_git\DSLTimewalk\Packages\dependencies\com.dreamscape.voip-9.2.3.tgz
+  - com.dreamscape.voip@file:D:\UnityProjects\DSLTimewalk\Packages\dependencies\com.dreamscape.voip-9.2.3.tgz
     version 9.2.3
   - com.meta.xr.sdk.audio@60.0.0 version 60.0.0
   - com.unity.2d.sprite@1.0.0 version 1.0.0

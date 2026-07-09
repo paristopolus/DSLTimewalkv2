@@ -16,7 +16,7 @@ public class DreamscapeGrabbableEditor : Editor
         if (GUILayout.Button("Auto-Assign Components From This GameObject"))
         {
             Undo.RecordObject(grabbable, "Auto-Assign DreamscapeGrabbable Components");
-            // fills stateSync and AttachPoint child if found
+            // fills stateSync and left/right attach point children if found
             grabbable.AutoAssignComponents();
             EditorUtility.SetDirty(grabbable);
         }

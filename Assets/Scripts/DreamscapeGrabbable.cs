@@ -49,8 +49,8 @@ public class DreamscapeGrabbable : MonoBehaviour
     [SerializeField] float shakeGraceSeconds = 0.5f;
 
     [Header("Attach")]
-    // optional child transform — grip offset is applied relative to the hand
-    [SerializeField] Transform attachPoint;
+    [SerializeField] Transform leftAttachPoint;
+    [SerializeField] Transform rightAttachPoint;
     [SerializeField] Vector3 localAttachOffset = Vector3.zero;
     [SerializeField] Vector3 localAttachEuler;
     [SerializeField] bool matchHandRotation;
@@ -80,6 +80,11 @@ public class DreamscapeGrabbable : MonoBehaviour
     float _shakeGraceTimer;
     Quaternion _rotationWhileHeld;
     bool _syncedRotationWhileHeld;
+    Vector3 _gripOffsetInObjectSpace;
+    Quaternion _gripRotationInObjectSpace = Quaternion.identity;
+    bool _hasGripAttach;
+    bool _pendingInitialGrabSnap;
+    Vector3 _twistAxisAtGrab;
 
     public bool IsGrabbed => _isGrabbedLocally;
     public bool IsPlacementLocked => _placementLocked;
@@ -337,6 +342,9 @@ public class DreamscapeGrabbable : MonoBehaviour
         _isGrabbedLocally = true;
         _activeHand = hand;
         _rotationWhileHeld = transform.rotation;
+        _twistAxisAtGrab = transform.forward;
+        _pendingInitialGrabSnap = matchHandRotation;
+        CacheGripAttach(GetGripPointTransform(_activeHand));
         // this client drives NetworkSyncedTransform while holding
         _syncedTransform.IsSource = true;
         _syncedRotationWhileHeld = _syncedTransform.SyncRotation;
@@ -345,6 +353,7 @@ public class DreamscapeGrabbable : MonoBehaviour
         _shakeGraceTimer = shakeGraceSeconds;
 
         onGrabbed.Invoke();
+        UpdateHeldPose();
     }
 
     void EndGrabLocal()
@@ -355,6 +364,8 @@ public class DreamscapeGrabbable : MonoBehaviour
         _isGrabbedLocally = false;
         _activeHand = HumanBodyBones.LastBone;
         _pendingGrabHand = HumanBodyBones.LastBone;
+        _hasGripAttach = false;
+        _pendingInitialGrabSnap = false;
         _syncedTransform.IsSource = false;
         _syncedTransform.SyncRotation = _syncedRotationWhileHeld;
         ResetShakeTracking();
@@ -368,33 +379,75 @@ public class DreamscapeGrabbable : MonoBehaviour
         if (hand == null)
             return;
 
-        Quaternion targetRotation = matchHandRotation
-            ? hand.rotation * Quaternion.Euler(localAttachEuler)
-            : _rotationWhileHeld;
+        Quaternion handAttachRotation = hand.rotation * Quaternion.Euler(localAttachEuler);
+        Quaternion targetRotation;
 
-        Transform gripPoint = GetGripPointTransform();
-        Vector3 targetPosition;
-
-        if (gripPoint != null)
+        if (matchHandRotation)
         {
-            Vector3 targetGripPosition = hand.position + hand.rotation * localAttachOffset;
-            targetPosition = targetGripPosition - targetRotation * gripPoint.localPosition;
+            Quaternion handAlignedRotation = handAttachRotation * Quaternion.Inverse(_gripRotationInObjectSpace);
+            Quaternion swing = GetSwing(handAlignedRotation, _twistAxisAtGrab);
+            Quaternion twist = _pendingInitialGrabSnap
+                ? GetTwist(_rotationWhileHeld, _twistAxisAtGrab)
+                : GetTwist(handAlignedRotation, _twistAxisAtGrab);
+            targetRotation = swing * twist;
+
+            if (_pendingInitialGrabSnap)
+                _pendingInitialGrabSnap = false;
         }
         else
         {
-            targetPosition = hand.position + hand.rotation * localAttachOffset;
+            targetRotation = _rotationWhileHeld;
         }
+
+        Vector3 targetGripPosition = hand.position + hand.rotation * localAttachOffset;
+        Vector3 targetPosition = _hasGripAttach
+            ? targetGripPosition - targetRotation * _gripOffsetInObjectSpace
+            : targetGripPosition;
 
         ApplyHeldPose(targetPosition, targetRotation);
     }
 
-    Transform GetGripPointTransform()
+    static Quaternion GetTwist(Quaternion rotation, Vector3 twistAxis)
     {
-        // root transform as attach point is treated as no offset
-        if (attachPoint == null || attachPoint == transform)
+        if (twistAxis.sqrMagnitude < 1e-8f)
+            return Quaternion.identity;
+
+        twistAxis.Normalize();
+        Vector3 vectorPart = new Vector3(rotation.x, rotation.y, rotation.z);
+        Vector3 twistPart = Vector3.Project(vectorPart, twistAxis);
+
+        if (twistPart.sqrMagnitude < 1e-8f)
+            return Quaternion.identity;
+
+        return Quaternion.Normalize(new Quaternion(twistPart.x, twistPart.y, twistPart.z, rotation.w));
+    }
+
+    static Quaternion GetSwing(Quaternion rotation, Vector3 twistAxis)
+    {
+        return rotation * Quaternion.Inverse(GetTwist(rotation, twistAxis));
+    }
+
+    void CacheGripAttach(Transform gripPoint)
+    {
+        if (gripPoint == null || gripPoint == transform)
+        {
+            _hasGripAttach = false;
+            _gripRotationInObjectSpace = Quaternion.identity;
+            return;
+        }
+
+        _gripOffsetInObjectSpace = Quaternion.Inverse(transform.rotation) * (gripPoint.position - transform.position);
+        _gripRotationInObjectSpace = Quaternion.Inverse(transform.rotation) * gripPoint.rotation;
+        _hasGripAttach = true;
+    }
+
+    Transform GetGripPointTransform(HumanBodyBones hand)
+    {
+        Transform point = hand == HumanBodyBones.LeftHand ? leftAttachPoint : rightAttachPoint;
+        if (point == null || point == transform)
             return null;
 
-        return attachPoint;
+        return point;
     }
 
     void ApplyHeldPose(Vector3 targetPosition, Quaternion targetRotation)
@@ -455,6 +508,16 @@ public class DreamscapeGrabbable : MonoBehaviour
         return false;
     }
 
+    float GetHandGrabDistance(HumanBodyBones handBone)
+    {
+        if (!TryGetHandTransform(handBone, out Transform hand))
+            return float.MaxValue;
+
+        Transform attachPoint = handBone == HumanBodyBones.LeftHand ? leftAttachPoint : rightAttachPoint;
+        Vector3 grabTarget = attachPoint != null ? attachPoint.position : transform.position;
+        return Vector3.Distance(hand.position, grabTarget);
+    }
+
     bool TryGetClosestAvailableHand(out HumanBodyBones hand, out float distance)
     {
         hand = HumanBodyBones.LastBone;
@@ -462,10 +525,9 @@ public class DreamscapeGrabbable : MonoBehaviour
 
         if (handPreference == HandPreference.LeftOnly || handPreference == HandPreference.Either)
         {
-            if (LocalHandOccupancy.IsHandAvailable(HumanBodyBones.LeftHand)
-                && TryGetHandTransform(HumanBodyBones.LeftHand, out Transform left))
+            if (LocalHandOccupancy.IsHandAvailable(HumanBodyBones.LeftHand))
             {
-                float leftDistance = Vector3.Distance(left.position, transform.position);
+                float leftDistance = GetHandGrabDistance(HumanBodyBones.LeftHand);
                 if (leftDistance < distance)
                 {
                     distance = leftDistance;
@@ -476,10 +538,9 @@ public class DreamscapeGrabbable : MonoBehaviour
 
         if (handPreference == HandPreference.RightOnly || handPreference == HandPreference.Either)
         {
-            if (LocalHandOccupancy.IsHandAvailable(HumanBodyBones.RightHand)
-                && TryGetHandTransform(HumanBodyBones.RightHand, out Transform right))
+            if (LocalHandOccupancy.IsHandAvailable(HumanBodyBones.RightHand))
             {
-                float rightDistance = Vector3.Distance(right.position, transform.position);
+                float rightDistance = GetHandGrabDistance(HumanBodyBones.RightHand);
                 if (rightDistance < distance)
                 {
                     distance = rightDistance;
@@ -509,27 +570,21 @@ public class DreamscapeGrabbable : MonoBehaviour
 
         if (handPreference == HandPreference.LeftOnly || handPreference == HandPreference.Either)
         {
-            if (TryGetHandTransform(HumanBodyBones.LeftHand, out Transform left))
+            float leftDistance = GetHandGrabDistance(HumanBodyBones.LeftHand);
+            if (leftDistance < distance)
             {
-                float leftDistance = Vector3.Distance(left.position, transform.position);
-                if (leftDistance < distance)
-                {
-                    distance = leftDistance;
-                    hand = HumanBodyBones.LeftHand;
-                }
+                distance = leftDistance;
+                hand = HumanBodyBones.LeftHand;
             }
         }
 
         if (handPreference == HandPreference.RightOnly || handPreference == HandPreference.Either)
         {
-            if (TryGetHandTransform(HumanBodyBones.RightHand, out Transform right))
+            float rightDistance = GetHandGrabDistance(HumanBodyBones.RightHand);
+            if (rightDistance < distance)
             {
-                float rightDistance = Vector3.Distance(right.position, transform.position);
-                if (rightDistance < distance)
-                {
-                    distance = rightDistance;
-                    hand = HumanBodyBones.RightHand;
-                }
+                distance = rightDistance;
+                hand = HumanBodyBones.RightHand;
             }
         }
 
@@ -624,22 +679,29 @@ public class DreamscapeGrabbable : MonoBehaviour
     {
         stateSync = GetComponent<NetworkSyncedInteger>();
 
-        Transform attachChild = transform.Find("AttachPoint");
-        if (attachChild == null)
+        Transform leftChild = FindAttachChild("LeftAttachPoint");
+        if (leftChild != null && leftChild != transform)
+            leftAttachPoint = leftChild;
+
+        Transform rightChild = FindAttachChild("RightAttachPoint");
+        if (rightChild != null && rightChild != transform)
+            rightAttachPoint = rightChild;
+    }
+
+    Transform FindAttachChild(string name)
+    {
+        Transform child = transform.Find(name);
+        if (child != null)
+            return child;
+
+        for (int i = 0; i < transform.childCount; i++)
         {
-            for (int i = 0; i < transform.childCount; i++)
-            {
-                Transform child = transform.GetChild(i);
-                if (child.name.Equals("AttachPoint", StringComparison.OrdinalIgnoreCase))
-                {
-                    attachChild = child;
-                    break;
-                }
-            }
+            Transform candidate = transform.GetChild(i);
+            if (candidate.name.Equals(name, StringComparison.OrdinalIgnoreCase))
+                return candidate;
         }
 
-        if (attachChild != null && attachChild != transform)
-            attachPoint = attachChild;
+        return null;
     }
 #endif
 

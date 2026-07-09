@@ -4090,22 +4090,6 @@ MonoBehaviour:
     fontSize: 35
     text: "Mr. Ellis: I\u2019d say... sometime between next Tuesday and your grandkids\u2019
       graduation."
---- !u!114 &3003234115864398788
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
-  m_Name: Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 0
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: dc20a6a19ca7ee440af72d4ca2e7bee0, type: 2}
 --- !u!114 &3120898824543176322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4129,26 +4113,8 @@ MonoBehaviour:
   m_Clips: []
   m_Markers:
     m_Objects:
-    - {fileID: 3003234115864398788}
-    - {fileID: 3775461503322802324}
     - {fileID: 5011337972254323696}
     - {fileID: 7282599100072490571}
---- !u!114 &3775461503322802324
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
-  m_Name: Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 127.59666666666665
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: b6b3f03c3c7139e49833422965eccda2, type: 2}
 --- !u!114 &4752529272130306879
 MonoBehaviour:
   m_ObjectHideFlags: 1

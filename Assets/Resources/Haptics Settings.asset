@@ -1,5 +1,19 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6149281567023184995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8732d2b94b9a65468f49b8f18ce696c, type: 3}
+  m_Name: dark-rumble-tension-370005 (b4ad6c4d-c105-44f3-91b2-d1e85aa75321)
+  m_EditorClassIdentifier: 
+  AudioClip: {fileID: 8300000, guid: ccf8e7203b96a3b4a91c7a9592c088a5, type: 3}
+  Id: b4ad6c4d-c105-44f3-91b2-d1e85aa75321
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,3 +58,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AudioClips:
   - {fileID: 5173977925991562072}
+  - {fileID: -6149281567023184995}

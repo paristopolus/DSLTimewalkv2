@@ -1,81 +1,101 @@
-using System.Collections;
-//using System.Collections.Generic;
-// using Unity.Netcode;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 public class ShakeVolumeController : MonoBehaviour
 {
-    // public float sensitivity = 1.0f;         // How responsive the volume is to shaking
-    // public float maxVolume = 1.0f;           // Maximum volume
-    // public float shakeThreshold = 0.1f;      // Minimum movement to be considered a shake
-    // public float shakeAmount = 0.05f;        // Visual shake intensity
-    // private float soundCooldown = 3.0f; // minimum time between sounds
-    // private float lastSoundTime = 0f;
+    [SerializeField] DreamscapeGrabbable grabbable;
+    [SerializeField] AudioSource audioSource;
 
-    // private AudioSource audioSource;
+    [SerializeField] float sensitivity = 0.1f;
+    [SerializeField] float maxVolume = 1f;
+    [SerializeField] float shakeThreshold = 2f;
 
-    // [SerializeField]
-    // private AudioClip soundClip; //audioclip to play, currently only used in network setting, local is already attached to audioSource
+    Vector3 _lastPosition;
+    bool _hasLastPosition;
 
-    // private Vector3 lastPosition;
-    // private float currentVolume;
+    void Awake()
+    {
+        if (audioSource == null)
+            audioSource = GetComponent<AudioSource>();
 
-    // private ShakeVolumeController shakeVolumeController;
+        if (grabbable == null)
+            grabbable = GetComponent<DreamscapeGrabbable>();
 
-    // void Start()
-    // {
-    //     audioSource = GetComponent<AudioSource>();
-    //     lastPosition = transform.position;
-    //     shakeVolumeController.GetComponent<ShakeVolumeController>();
-    // }
-    // void Update()
-    // {
-    //     // Calculate movement delta
-    //     Vector3 movement = transform.position - lastPosition;
-    //     float shakeIntensity = movement.magnitude / Time.deltaTime;
-    //     //Debug.Log("Shake Intensity: " + shakeIntensity);
+        if (audioSource != null)
+            audioSource.playOnAwake = false;
+    }
 
-    //     // Apply threshold
-    //     if (shakeIntensity < shakeThreshold)
-    //     {
-    //         shakeIntensity = 0;
-    //     }
-    //     // Map intensity to volume
-    //     currentVolume = Mathf.Clamp(shakeIntensity * sensitivity, 0, maxVolume);
-    //     audioSource.volume = currentVolume;
-    //     //Debug.Log("Current volume played: "+ currentVolume);
+    void OnEnable()
+    {
+        _hasLastPosition = false;
+    }
 
-    //     if (shakeIntensity >= shakeThreshold && Time.time - lastSoundTime > soundCooldown)
-    //     {
-    //         lastSoundTime = Time.time;
+    void Update()
+    {
+        if (audioSource == null || audioSource.clip == null)
+            return;
 
-    //         PlayNoteServerRpc();
-    //     }
+        if (grabbable != null && (grabbable.IsPlacementLocked || grabbable.IsPlaced))
+        {
+            StopShakeAudio();
+            _hasLastPosition = false;
+            return;
+        }
 
-    //     lastPosition = transform.position;
-    // }
+        Vector3 position = transform.position;
 
-    // void OnDisable()
-    // {
-    //     shakeVolumeController.enabled = false;
-    // }
+        if (!_hasLastPosition || Time.deltaTime <= 0f)
+        {
+            _lastPosition = position;
+            _hasLastPosition = true;
+            return;
+        }
 
-    // // [ServerRpc(RequireOwnership = false)]
-    // private void PlayNoteServerRpc()
-    // {
-    //     // Tell everyone (including the original player) to play the sound
+        float shakeIntensity = (position - _lastPosition).magnitude / Time.deltaTime;
+        _lastPosition = position;
 
-    //     audioSource.volume = currentVolume;
-    //     // PlayNoteClientRpc();
-    //     audioSource.PlayOneShot(soundClip);
-    // }
+        if (shakeIntensity < shakeThreshold)
+            shakeIntensity = 0f;
 
-    // // [ClientRpc]
-    // // private void PlayNoteClientRpc()
-    // // {
-    // //     audioSource.PlayOneShot(soundClip);
+        ApplyVolume(Mathf.Clamp(shakeIntensity * sensitivity, 0f, maxVolume));
+    }
 
+    void OnDisable()
+    {
+        StopShakeAudio();
+        _hasLastPosition = false;
+    }
 
-    // // }
+    void ApplyVolume(float volume)
+    {
+        audioSource.volume = volume;
+
+        if (volume > 0f)
+        {
+            if (!audioSource.isPlaying)
+                audioSource.Play();
+            return;
+        }
+
+        StopShakeAudio();
+    }
+
+    void StopShakeAudio()
+    {
+        if (audioSource == null)
+            return;
+
+        if (audioSource.isPlaying)
+            audioSource.Stop();
+
+        audioSource.volume = 0f;
+    }
+
+#if UNITY_EDITOR
+    public void AutoAssignComponents()
+    {
+        grabbable = GetComponent<DreamscapeGrabbable>();
+        audioSource = GetComponent<AudioSource>();
+    }
+#endif
 }

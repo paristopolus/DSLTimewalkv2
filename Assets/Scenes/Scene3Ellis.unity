@@ -2476,7 +2476,7 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1319311203}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: FadeLightsCallAcrossScenes, Assembly-CSharp
           m_MethodName: CallFadeIn
           m_Mode: 1
@@ -2702,7 +2702,7 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1319311203}
+        - m_Target: {fileID: 0}
           m_TargetAssemblyTypeName: FadeLightsCallAcrossScenes, Assembly-CSharp
           m_MethodName: CallFadeOut
           m_Mode: 1
@@ -3382,7 +3382,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1319311202}
   - component: {fileID: 1319311200}
-  - component: {fileID: 1319311203}
   - component: {fileID: 1319311204}
   - component: {fileID: 1319311205}
   m_Layer: 0
@@ -3446,18 +3445,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1319311203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1319311199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae4c6e284379bb04cb8527181127df82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1319311204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7208,7 +7195,7 @@ PrefabInstance:
     - target: {fileID: 3448949609160728061, guid: 30b3c262d94dd234f9a172ddbc2cf3ec, type: 3}
       propertyPath: fadeOutScript
       value: 
-      objectReference: {fileID: 1319311203}
+      objectReference: {fileID: 0}
     - target: {fileID: 3448949609160728061, guid: 30b3c262d94dd234f9a172ddbc2cf3ec, type: 3}
       propertyPath: EllisVfxSweater
       value: 

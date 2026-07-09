@@ -205,7 +205,7 @@ MonoBehaviour:
   m_InfiniteClipApplyFootIK: 1
   mInfiniteClipLoop: 0
   m_MatchTargetFields: 63
-  m_Position: {x: -3.245218, y: 0.008818209, z: -9.742051}
+  m_Position: {x: -1.5327657, y: 0.008818209, z: -2.3287244}
   m_EulerAngles: {x: 0, y: 180, z: 0}
   m_AvatarMask: {fileID: 0}
   m_ApplyAvatarMask: 1
@@ -1307,7 +1307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WaveName: 
   Clip: {fileID: 0}
-  AudioBankEntry: {fileID: 5173977925991562072, guid: 7b230c2203ab58244ba7d8ec01e0dd80, type: 2}
+  AudioBankEntry: {fileID: -6149281567023184995, guid: 7b230c2203ab58244ba7d8ec01e0dd80, type: 2}
   Volume: 1
   VolumeCurve:
     serializedVersion: 2
@@ -1704,22 +1704,6 @@ MonoBehaviour:
     volume: 1
     stereoPan: 0
     spatialBlend: 0
---- !u!114 &1488873478970813841
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
-  m_Name: Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 0.4
-  m_Retroactive: 0
-  m_EmitOnce: 1
-  m_Asset: {fileID: 11400000, guid: dc20a6a19ca7ee440af72d4ca2e7bee0, type: 2}
 --- !u!114 &1655443105888282402
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2536,7 +2520,6 @@ MonoBehaviour:
     m_Objects:
     - {fileID: -7323066647373320452}
     - {fileID: -8124087656401286119}
-    - {fileID: 1488873478970813841}
 --- !u!114 &4177880586860646316
 MonoBehaviour:
   m_ObjectHideFlags: 1

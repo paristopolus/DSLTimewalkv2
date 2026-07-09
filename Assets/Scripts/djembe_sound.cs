@@ -1,120 +1,194 @@
-using System.Collections;
-//using System.Collections.Generic;
-using UnityEngine;
-using RvSdk.Component;
+using System.Collections.Generic;
 using RvSdk.Avatar;
+using RvSdk.Component;
+using RvSdk.Controller;
+using RvSdk.Module;
+using UnityEngine;
 
-// #if UNITY_EDITOR
-// using UnityEditor;
-// #endif
-// public enum DrumSoundType
-// {
-//     Soft,
-//     Medium,
-//     Hard
-// }
-
-// [RequireComponent(typeof(AudioSource))]
-
+[RequireComponent(typeof(Rigidbody))]
 public class djembe_sound : MonoBehaviour
 {
-    //     public AudioClip softImpactClip;
-    //     public AudioClip mediumImpactClip;
-    //     public AudioClip hardImpactClip;
+    [Header("Hit detection")]
+    [SerializeField] float handMatchRadius = 0.25f;
+    [SerializeField] float minHitSpeed = 0.75f;
+    [SerializeField] float hitCooldownSeconds = 0.12f;
 
-    //     public float mediumThreshold = 5f; //currently unused
-    //     public float hardThreshold = 10f; //currently unused
-    //     private AudioSource audioSource;
-    //     [HideInInspector] public bool LightThreadsInScene;
-    //     private ThreadSpawner threadSpawner;
-    //     private AudioIncreaseOnGrab audioIncreaseOnGrab;
-    //     [HideInInspector] public GameObject lightAura;
-    //     private ClientToServerTrigger clientToServerTrigger;
-    //     private NetworkSound networkSound;
+    [Header("Impact clips")]
+    [SerializeField] float mediumThreshold = 2.5f;
+    [SerializeField] float hardThreshold = 5f;
 
-    //     void Start()
-    //     {
-    //         audioSource = GetComponent<AudioSource>();
-    //         threadSpawner = GetComponent<ThreadSpawner>();
-    //         audioIncreaseOnGrab = GetComponent<AudioIncreaseOnGrab>();
-    //     }
+    ClientToServerTrigger _clientTrigger;
+    NetworkSound _networkSound;
 
-    //     public void HandleServerHit(string triggerName, AvatarController avatar, string clipIndex)
-    //     {
-    //         if (networkSound == null) return;
-    //         networkSound.PlayOnce(int.Parse(clipIndex));
-    //     }
+    float _lastHitTime = float.NegativeInfinity;
+    bool _hasPreviousLeftHand;
+    bool _hasPreviousRightHand;
+    Vector3 _previousLeftHandPosition;
+    Vector3 _previousRightHandPosition;
 
-    //     private bool IsWithinNearDistance(IXRInteractor interactor, float nearMaxDistance)
-    //     {
-    //         return Vector3.Distance(interactor.transform.position, transform.position) <= nearMaxDistance;
-    //     }
+    readonly Dictionary<int, Vector3> _colliderPreviousPositions = new Dictionary<int, Vector3>();
 
-    //     public void TryGetNearCaster(HoverEnterEventArgs args)
-    //     {
-    //         if (!IsWithinNearDistance(args.interactorObject, 1.0f)) return;
-    //         PlaySoundTest(hardImpactClip);
-    //         if (LightThreadsInScene)
-    //         {
-    //             threadSpawner.onHoverEntered(args);
-    //             audioIncreaseOnGrab.onHoverEntered(args);
-    //             lightAura.SetActive(true);
-    //         }
-    //     }
+    void Awake()
+    {
+        _clientTrigger = GetComponent<ClientToServerTrigger>();
+        _networkSound = GetComponent<NetworkSound>();
 
-    //     public void PlaySoundTest(AudioClip clip)
-    //     {
+        Rigidbody body = GetComponent<Rigidbody>();
+        if (body != null)
+        {
+            body.isKinematic = true;
+            body.useGravity = false;
+        }
+    }
 
-    //         DrumSoundType type = DrumSoundType.Soft;
+    void OnEnable()
+    {
+        if (_clientTrigger != null)
+            _clientTrigger.OnTriggerWithArg.AddListener(HandleServerHit);
+    }
 
-    //         if (clip == mediumImpactClip) type = DrumSoundType.Medium;
-    //         else if (clip == hardImpactClip) type = DrumSoundType.Hard;
+    void OnDisable()
+    {
+        if (_clientTrigger != null)
+            _clientTrigger.OnTriggerWithArg.RemoveListener(HandleServerHit);
 
-    //         PlayNoteServerRpc(type);
+        _colliderPreviousPositions.Clear();
+        _hasPreviousLeftHand = false;
+        _hasPreviousRightHand = false;
+    }
 
-    //     }
+    void Update()
+    {
+        if (!CanDetectHits() || !TryGetLocalHandTransforms(out Transform leftHand, out Transform rightHand))
+            return;
 
-    //     // [ServerRpc(RequireOwnership = false)]
-    //     private void PlayNoteServerRpc(DrumSoundType type)
-    //     {
-    //         // Tell everyone (including the original player) to play the sound
-    //         PlayNoteClientRpc(type);
-    //     }
+        if (leftHand != null)
+        {
+            _previousLeftHandPosition = leftHand.position;
+            _hasPreviousLeftHand = true;
+        }
 
-    //     // [ClientRpc]
-    //     private void PlayNoteClientRpc(DrumSoundType type)
-    //     {
-    //         AudioClip selectedClip = null;
+        if (rightHand != null)
+        {
+            _previousRightHandPosition = rightHand.position;
+            _hasPreviousRightHand = true;
+        }
+    }
 
-    //         switch (type)
-    //         {
-    //             case DrumSoundType.Soft: selectedClip = softImpactClip; break;
-    //             case DrumSoundType.Medium: selectedClip = mediumImpactClip; break;
-    //             case DrumSoundType.Hard: selectedClip = hardImpactClip; break;
-    //         }
+    void OnTriggerEnter(Collider other)
+    {
+        if (!CanDetectHits() || _clientTrigger == null)
+            return;
 
-    //         if (selectedClip != null)
-    //             audioSource.PlayOneShot(selectedClip);
+        if (!TryGetLocalHandHit(other, out float hitSpeed))
+            return;
 
-    //     }
+        if (hitSpeed < minHitSpeed || Time.time - _lastHitTime < hitCooldownSeconds)
+            return;
 
+        _lastHitTime = Time.time;
+        _clientTrigger.Trigger(SelectClipIndex(hitSpeed).ToString());
+    }
+
+    public void HandleServerHit(string triggerName, AvatarController avatar, string clipIndex)
+    {
+        if (!NetworkController.IsServer || _networkSound == null)
+            return;
+
+        if (!int.TryParse(clipIndex, out int index))
+            index = 0;
+
+        _networkSound.PlayOnce(index);
+    }
+
+    bool CanDetectHits()
+    {
+        return NetworkGate.IsInitialized && NetworkGate.IsClient;
+    }
+
+    bool TryGetLocalHandHit(Collider other, out float hitSpeed)
+    {
+        hitSpeed = 0f;
+
+        AvatarController avatar = other.GetComponentInParent<AvatarController>();
+        if (avatar == null)
+            return false;
+
+        AvatarController localAvatar = GameController.Instance?.CurrentPlayer?.AvatarController;
+        if (localAvatar == null || avatar != localAvatar)
+            return false;
+
+        if (!TryGetLocalHandTransforms(out Transform leftHand, out Transform rightHand))
+            return false;
+
+        Transform colliderTransform = other.transform;
+        float leftDistance = leftHand != null
+            ? Vector3.Distance(colliderTransform.position, leftHand.position)
+            : float.MaxValue;
+        float rightDistance = rightHand != null
+            ? Vector3.Distance(colliderTransform.position, rightHand.position)
+            : float.MaxValue;
+
+        if (Mathf.Min(leftDistance, rightDistance) > handMatchRadius)
+            return false;
+
+        if (leftDistance <= rightDistance)
+            hitSpeed = GetTrackedHandSpeed(leftHand, _hasPreviousLeftHand, _previousLeftHandPosition);
+        else
+            hitSpeed = GetTrackedHandSpeed(rightHand, _hasPreviousRightHand, _previousRightHandPosition);
+
+        if (hitSpeed <= 0f)
+            hitSpeed = GetColliderSpeed(other);
+
+        return true;
+    }
+
+    float GetTrackedHandSpeed(Transform hand, bool hasPreviousPosition, Vector3 previousPosition)
+    {
+        if (hand == null || !hasPreviousPosition || Time.deltaTime <= 0f)
+            return 0f;
+
+        return (hand.position - previousPosition).magnitude / Time.deltaTime;
+    }
+
+    float GetColliderSpeed(Collider other)
+    {
+        int id = other.GetInstanceID();
+        Vector3 position = other.transform.position;
+
+        if (!_colliderPreviousPositions.TryGetValue(id, out Vector3 previousPosition) || Time.deltaTime <= 0f)
+        {
+            _colliderPreviousPositions[id] = position;
+            return 0f;
+        }
+
+        float speed = (position - previousPosition).magnitude / Time.deltaTime;
+        _colliderPreviousPositions[id] = position;
+        return speed;
+    }
+
+    bool TryGetLocalHandTransforms(out Transform leftHand, out Transform rightHand)
+    {
+        leftHand = null;
+        rightHand = null;
+
+        Animator animator = GameController.Instance?.CurrentPlayer?.AvatarController?.AvatarAnimator;
+        if (animator == null)
+            return false;
+
+        leftHand = animator.GetBoneTransform(HumanBodyBones.LeftHand);
+        rightHand = animator.GetBoneTransform(HumanBodyBones.RightHand);
+        return leftHand != null || rightHand != null;
+    }
+
+    int SelectClipIndex(float hitSpeed)
+    {
+        if (hitSpeed >= hardThreshold)
+            return 2;
+
+        if (hitSpeed >= mediumThreshold)
+            return 1;
+
+        return 0;
+    }
 }
-
-// #if UNITY_EDITOR
-// [CustomEditor(typeof(djembe_sound))]
-// public class djembeEditor : Editor
-// {
-//     public override void OnInspectorGUI()
-//     {
-//         base.OnInspectorGUI();
-//         var script = (djembe_sound)target;
-
-//         script.LightThreadsInScene = EditorGUILayout.Toggle("Light Threads In Scene", script.LightThreadsInScene);
-
-//         if (script.LightThreadsInScene == false)
-//             return;
-
-//         script.lightAura = EditorGUILayout.ObjectField("Light Aura Object", script.lightAura, typeof(GameObject), true) as GameObject;
-//     }
-// }
-// #endif

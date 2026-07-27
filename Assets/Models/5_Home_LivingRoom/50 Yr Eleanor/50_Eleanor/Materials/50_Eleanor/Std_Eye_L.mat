@@ -8,8 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Std_Eye_L
-  m_Shader: {fileID: -6465566751694194690, guid: ad3331f0a69372649b743e0ffebf237a,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: ad3331f0a69372649b743e0ffebf237a, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []

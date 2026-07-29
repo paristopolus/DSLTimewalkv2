@@ -91,7 +91,7 @@ Material:
     m_Floats:
     - BOOLEAN_ENABLECOLOR: 0
     - _AOOccludeAll: 0
-    - _AOStrength: 0.1
+    - _AOStrength: 1
     - _AlphaClip2: 0.666
     - _AlphaCutoff: 0.5
     - _AlphaPower: 1
@@ -123,8 +123,8 @@ Material:
     - _SmoothnessMin: 0
     - _SmoothnessPower: 1
     - _SpecularMix: 0.5
-    - _SpecularMultiplier: 0.4
-    - _SpecularPower: 4
+    - _SpecularMultiplier: 0.01
+    - _SpecularPower: 1
     - _SpecularPowerScale: 4
     - _SpecularShiftMax: -0.25
     - _SpecularShiftMin: -0.25

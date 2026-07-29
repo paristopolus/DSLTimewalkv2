@@ -123,8 +123,8 @@ Material:
     - _SmoothnessMin: 0
     - _SmoothnessPower: 1
     - _SpecularMix: 0.5
-    - _SpecularMultiplier: 0.4
-    - _SpecularPowerScale: 4
+    - _SpecularMultiplier: 0.1
+    - _SpecularPowerScale: 1
     - _SpecularShiftMax: -0.25
     - _SpecularShiftMin: -0.25
     - _Translucency: 0.25

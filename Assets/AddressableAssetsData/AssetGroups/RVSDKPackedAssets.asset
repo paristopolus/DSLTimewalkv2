@@ -16,7 +16,31 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 8786c657fe8fc1447af8fd0d7aefffa5
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 05786435d77fcdf4891febf8dfd9d7c0
+    m_Address: RVSDK Texts_en
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8815427dd9ff4334984b2d9af75d382e
+    m_Address: Packages/com.artanim.common/Runtime/Modules/Texts/RVSDK Localization/RVSDK
+      Texts Shared Data.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca2dfac4aceefcf46847073be08226c6
+    m_Address: RVSDK Texts_fr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Locale-fr
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb7a186b704343b4f849fa54f475bde9
+    m_Address: RVSDK Texts_de
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Locale-de
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a4ffe833bb9bbee4892cd04c225b23b7, type: 2}
   m_SchemaSet:

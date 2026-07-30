@@ -9120,6 +9120,67 @@ MonoBehaviour:
   grabbable: {fileID: 919204775}
   audioSource: {fileID: 4414497273397230878}
   placementClip: {fileID: 8300000, guid: c4332c91e19bfcc42aa81e0ab39033db, type: 3}
+--- !u!1001 &4734000624397562840
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3510378447165330468, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.588
+      objectReference: {fileID: 0}
+    - target: {fileID: 3510378447165330468, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 3510378447165330468, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.504
+      objectReference: {fileID: 0}
+    - target: {fileID: 3510378447165330468, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3510378447165330468, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3510378447165330468, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3510378447165330468, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3510378447165330468, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3510378447165330468, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3510378447165330468, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788064665538658095, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
+      propertyPath: m_Name
+      value: SkipButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 8291395705375940353, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
+      propertyPath: OnTriggerValidated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2024339136}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
 --- !u!1 &6051092647494404784 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1361738681147133447, guid: da99ee2793733f04c9100f4860254988, type: 3}
@@ -10452,3 +10513,4 @@ SceneRoots:
   - {fileID: 1415571188}
   - {fileID: 131918716}
   - {fileID: 1897458040}
+  - {fileID: 4734000624397562840}

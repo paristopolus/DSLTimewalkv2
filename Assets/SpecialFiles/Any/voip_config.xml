@@ -3,7 +3,7 @@
 	<DefaultInputDevice />
 	<DefaultOutputDevice />
 	<VolumeInputDevice>1</VolumeInputDevice>
-	<VolumeOutputDevice>1</VolumeOutputDevice>
+	<VolumeOutputDevice>0</VolumeOutputDevice>
 	<ConnectionAttempts>5</ConnectionAttempts>
 	<ConnectionAttemptsDelay>30</ConnectionAttemptsDelay>
 	<ConnectionPingIPAddress>8.8.8.8</ConnectionPingIPAddress>

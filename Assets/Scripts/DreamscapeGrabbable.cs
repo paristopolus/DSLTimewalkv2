@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using RvSdk.Avatar;
 using RvSdk.Component;
 using RvSdk.Controller;
@@ -85,6 +86,9 @@ public class DreamscapeGrabbable : MonoBehaviour
     bool _hasGripAttach;
     bool _pendingInitialGrabSnap;
     Vector3 _twistAxisAtGrab;
+    bool _transformRegistered;
+
+    static readonly HashSet<string> RegisteredTransformIds = new HashSet<string>();
 
     public bool IsGrabbed => _isGrabbedLocally;
     public bool IsPlacementLocked => _placementLocked;
@@ -345,6 +349,7 @@ public class DreamscapeGrabbable : MonoBehaviour
         _twistAxisAtGrab = transform.forward;
         _pendingInitialGrabSnap = matchHandRotation;
         CacheGripAttach(GetGripPointTransform(_activeHand));
+        EnsureTransformRegistered();
         // this client drives NetworkSyncedTransform while holding
         _syncedTransform.IsSource = true;
         _syncedRotationWhileHeld = _syncedTransform.SyncRotation;
@@ -460,6 +465,30 @@ public class DreamscapeGrabbable : MonoBehaviour
         }
 
         transform.SetPositionAndRotation(targetPosition, targetRotation);
+    }
+
+    void EnsureTransformRegistered()
+    {
+        if (_transformRegistered || _syncedTransform == null)
+            return;
+
+        if (!NetworkGate.IsInitialized || !NetworkGate.IsClient)
+            return;
+
+        string transformId = _syncedTransform.Id;
+        if (string.IsNullOrEmpty(transformId))
+            return;
+
+        if (RegisteredTransformIds.Contains(transformId))
+        {
+            _transformRegistered = true;
+            return;
+        }
+
+        // Register at grab time so local pre-game moves (note raise, puzzle lift) are not overwritten by sync.
+        _syncedTransform.Register(true);
+        RegisteredTransformIds.Add(transformId);
+        _transformRegistered = true;
     }
 
     bool ShouldRelease()

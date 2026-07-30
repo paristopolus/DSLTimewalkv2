@@ -6,7 +6,7 @@
 	<Key>AcyMCchJwCsrk7Zf5ALzkiCnM9EkSv7A</Key>
 	<IsEnvironmentCustom>false</IsEnvironmentCustom>
 	<IsTestMode>true</IsTestMode>
-	<AudibleDistance>64</AudibleDistance>
+	<AudibleDistance>0</AudibleDistance>
 	<ConversationalDistance>3</ConversationalDistance>
 	<AudioFadeIntensityByDistance>0.75</AudioFadeIntensityByDistance>
 	<AudioFadeModel>InverseByDistance</AudioFadeModel>

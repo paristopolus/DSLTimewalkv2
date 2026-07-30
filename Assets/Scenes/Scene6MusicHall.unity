@@ -42999,7 +42999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6909736259062520518, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
       propertyPath: AlwaysPlay
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8102740858988434057, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
       propertyPath: m_Size.x

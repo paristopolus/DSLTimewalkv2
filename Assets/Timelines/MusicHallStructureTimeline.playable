@@ -1335,7 +1335,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   LoopClip: 1
   Persistent: 0
-  AlwaysPlay: 0
+  AlwaysPlay: 1
   MutedElements: []
   UseLocalStationId: 0
   StationId: 

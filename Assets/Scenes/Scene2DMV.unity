@@ -29205,7 +29205,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 6
+  shakeSpeedThreshold: 1
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 370918952}
@@ -30721,7 +30721,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 6
+  shakeSpeedThreshold: 1
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 1004601663}
@@ -37273,7 +37273,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 6
+  shakeSpeedThreshold: 1
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 1680875654}
@@ -39197,7 +39197,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 6
+  shakeSpeedThreshold: 1
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 104240649}
@@ -40766,7 +40766,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 6
+  shakeSpeedThreshold: 1
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 1783362344}
@@ -42105,7 +42105,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 6
+  shakeSpeedThreshold: 1
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 470076451}
@@ -42712,7 +42712,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723954526895401603, guid: c82520b97c6bfb94291096ae8c17d60e, type: 3}
       propertyPath: m_SceneBindings.Array.size
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4723954526895401603, guid: c82520b97c6bfb94291096ae8c17d60e, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].key
@@ -42771,6 +42771,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -7066958477381144506, guid: 70266a06039a88a4dac55ec05a5aabf1, type: 2}
     - target: {fileID: 4723954526895401603, guid: c82520b97c6bfb94291096ae8c17d60e, type: 3}
+      propertyPath: m_SceneBindings.Array.data[14].key
+      value: 
+      objectReference: {fileID: -8054954974469336392, guid: 70266a06039a88a4dac55ec05a5aabf1, type: 2}
+    - target: {fileID: 4723954526895401603, guid: c82520b97c6bfb94291096ae8c17d60e, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 
       objectReference: {fileID: 0}
@@ -42827,6 +42831,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 329876305}
     - target: {fileID: 4723954526895401603, guid: c82520b97c6bfb94291096ae8c17d60e, type: 3}
+      propertyPath: m_SceneBindings.Array.data[14].value
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723954526895401603, guid: c82520b97c6bfb94291096ae8c17d60e, type: 3}
       propertyPath: m_ExposedReferences.m_References.Array.data[0].second
       value: 
       objectReference: {fileID: 942583316}
@@ -42840,7 +42848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4745260775876956610, guid: c82520b97c6bfb94291096ae8c17d60e, type: 3}
       propertyPath: m_Events.m_Events.Array.data[6].m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4745260775876956610, guid: c82520b97c6bfb94291096ae8c17d60e, type: 3}
       propertyPath: m_Events.m_Events.Array.data[7].m_PersistentCalls.m_Calls.Array.size
@@ -43510,7 +43518,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 6
+  shakeSpeedThreshold: 1
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 305759247}
@@ -44168,7 +44176,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 6
+  shakeSpeedThreshold: 1
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 989776565}
@@ -47555,7 +47563,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 6
+  shakeSpeedThreshold: 1
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 1397524557}
@@ -47847,7 +47855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8080092689195309001, guid: 844ed91fd95085347bb5def25afb77a4, type: 3}
       propertyPath: Value
-      value: 1
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -48084,7 +48092,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 6
+  shakeSpeedThreshold: 1
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 147981667}
@@ -48653,7 +48661,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 6
+  shakeSpeedThreshold: 1
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 2011127192}
@@ -48956,7 +48964,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 6
+  shakeSpeedThreshold: 1
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 1105293054}

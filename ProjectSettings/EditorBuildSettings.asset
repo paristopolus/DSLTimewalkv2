@@ -78,6 +78,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene9_CreditsBlackBox.unity
     guid: be6b2eb0e7b33104983d5172e6d7c166
+  - enabled: 1
+    path: Assets/Scenes/FloorRumbleTest.unity
+    guid: 14867ed2bc2929d4693d909f07813891
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: b67475784df59614d9e468b9708809c3, type: 2}
     com.unity.localization.addressable-group-rules: {fileID: 11400000, guid: 775f00c7cd5df1d4a8d0054fb83fca8d, type: 2}

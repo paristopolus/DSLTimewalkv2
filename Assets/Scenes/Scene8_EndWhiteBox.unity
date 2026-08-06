@@ -2051,14 +2051,14 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 4
+  shakeSpeedThreshold: 1.5
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 423195580}
   rightAttachPoint: {fileID: 1537818794}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -3152,6 +3152,8 @@ PlayableDirector:
     value: {fileID: 503592702}
   - key: {fileID: 7489357749537073063, guid: e63bb8b457f862744860adf20d0e45ce, type: 2}
     value: {fileID: 503592702}
+  - key: {fileID: -5072819815868128511, guid: e63bb8b457f862744860adf20d0e45ce, type: 2}
+    value: {fileID: 1795442824}
   m_ExposedReferences:
     m_References: []
 --- !u!1001 &519633450
@@ -3429,6 +3431,10 @@ PrefabInstance:
     - target: {fileID: 100002, guid: 222cbce048e3d80409fc8181d5de94ca, type: 3}
       propertyPath: m_Name
       value: Railings
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 222cbce048e3d80409fc8181d5de94ca, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 222cbce048e3d80409fc8181d5de94ca, type: 3}
       propertyPath: m_RootOrder
@@ -4388,14 +4394,14 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 4
+  shakeSpeedThreshold: 1.5
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 1819481984}
   rightAttachPoint: {fileID: 0}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -5625,7 +5631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &947207688
 Transform:
   m_ObjectHideFlags: 0
@@ -9011,14 +9017,14 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 4
+  shakeSpeedThreshold: 1.5
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 1332867932}
   rightAttachPoint: {fileID: 1332867932}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -9212,14 +9218,14 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 4
+  shakeSpeedThreshold: 1.5
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 1819481985}
   rightAttachPoint: {fileID: 1819481985}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -11023,14 +11029,14 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 4
+  shakeSpeedThreshold: 1.5
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 1400991785}
   rightAttachPoint: {fileID: 1400991785}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -11118,14 +11124,14 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 4
+  shakeSpeedThreshold: 1.5
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 1400991787}
   rightAttachPoint: {fileID: 1400991787}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -12958,14 +12964,14 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 4
+  shakeSpeedThreshold: 1.5
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 530637538}
   rightAttachPoint: {fileID: 530637538}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -13067,6 +13073,139 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1411602058}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1795442822
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3292825660058612151, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292825660058612151, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292825660058612151, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292825660058612151, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292825660058612151, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292825660058612151, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292825660058612151, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292825660058612151, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292825660058612151, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3292825660058612151, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663457917577159364, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+      propertyPath: m_Name
+      value: FloorRumble
+      objectReference: {fileID: 0}
+    - target: {fileID: 6909736259062520518, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 1795442824}
+    - target: {fileID: 6909736259062520518, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+      propertyPath: Volume
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6909736259062520518, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+      propertyPath: Duration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6909736259062520518, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+      propertyPath: AudioBankEntry
+      value: 
+      objectReference: {fileID: -6149281567023184995, guid: 7b230c2203ab58244ba7d8ec01e0dd80, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4663457917577159364, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1795442826}
+  m_SourcePrefab: {fileID: 100100000, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+--- !u!1 &1795442823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4663457917577159364, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+  m_PrefabInstance: {fileID: 1795442822}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1795442824 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8255541893015973858, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+  m_PrefabInstance: {fileID: 1795442822}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795442823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ab09c20d9c7a8446b0e89f8c735ed9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1795442825 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6909736259062520518, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+  m_PrefabInstance: {fileID: 1795442822}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795442823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5459f306387f87d46b8daa42ea87c8d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1795442826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795442823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 9d771fd36b08b444aa657f7cef3de6c2, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1795442825}
+          m_TargetAssemblyTypeName: RvSdk.Haptics.HapticAudioEffect, com.dreamscape.haptics
+          m_MethodName: PlayOnAllStations
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!4 &1819481984 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 960615210438100758, guid: ba14a779b5cd43049944f6d15f14cfdf, type: 3}
@@ -17113,14 +17252,14 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 4
+  shakeSpeedThreshold: 1.5
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 1524704394}
   rightAttachPoint: {fileID: 1894525657}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -17398,3 +17537,4 @@ SceneRoots:
   - {fileID: 62347393}
   - {fileID: 1049031381}
   - {fileID: 1830515093}
+  - {fileID: 1795442822}

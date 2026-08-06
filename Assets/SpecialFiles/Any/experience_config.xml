@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ExperienceConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ExperienceMode="MultiPlayer" HasMatureContent="false" AllowAddPlayerWhileRunning="true" ServerFPS="120" LimitFPSOnHMDOffHead="false" SeatedExperience="false" ShutdownOnEndSession="false" LipsyncAudioGain="0" LipsyncSyncUpdatePeriod="0.05" EnableNativeHaptics="true" HideUIInClient="false" KeepFocusOnServerWindow="false" AllowClientSideGameProgress="true" ExperienceName="DSLTimewalk" LipsyncMode="None">
+<ExperienceConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ExperienceMode="MultiPlayer" HasMatureContent="false" AllowAddPlayerWhileRunning="true" ServerFPS="120" LimitFPSOnHMDOffHead="false" SeatedExperience="false" ShutdownOnEndSession="false" LipsyncAudioGain="0" LipsyncSyncUpdatePeriod="0.05" EnableNativeHaptics="true" HideUIInClient="false" KeepFocusOnServerWindow="false" AllowClientSideGameProgress="true" ExperienceName="DSLTimewalk" LipsyncMode="ForceMicStreamed">
 	<StartScenes>
 		<Scene SceneName="Scene0_tutorial" />
 		<Scene SceneName="Scene1Baby" />
@@ -11,6 +11,8 @@
 		<Scene SceneName="Scene7_EndDMV" />
 		<Scene SceneName="Scene8_EndWhiteBox" />
 		<Scene SceneName="Scene9_CreditsBlackBox" />
+		<Scene SceneName="Haptics Sample Scene" />
+		<Scene SceneName="FloorRumbleTest" />
 	</StartScenes>
 	<Avatars>
 		<Avatar Name="Jack" AvatarResource="Avatars/PFB_Jack" RigName="Mixamo" />

@@ -1365,7 +1365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8241ceaa72068fe469d394a4ba2da2e8, type: 3}
   m_Name: HapticAudio
   m_EditorClassIdentifier: 
-  WaveName: 
+  WaveName: Hard Bang
   Clip: {fileID: 0}
   AudioBankEntry: {fileID: -6149281567023184995, guid: 7b230c2203ab58244ba7d8ec01e0dd80, type: 2}
   Volume: 10

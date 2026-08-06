@@ -6705,8 +6705,16 @@ PrefabInstance:
       value: FloorRumble
       objectReference: {fileID: 0}
     - target: {fileID: 6909736259062520518, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 1464708422}
+    - target: {fileID: 6909736259062520518, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
       propertyPath: Volume
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8255541893015973858, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
+      propertyPath: IgnoreCollider
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6988,13 +6996,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectId: 38cec0f1-f9cd-4dd5-b944-739a4345d6e2
-  SyncMode: 0
+  SyncMode: 2
   Mode: 0
   TriggeringClientOnly: 0
   NeedHead: 0
   NeedRightFoot: 0
   NeedLeftFoot: 0
-  NeedOneFoot: 1
+  NeedOneFoot: 0
   NeedRightHand: 0
   NeedLeftHand: 0
   NeedOneHand: 0

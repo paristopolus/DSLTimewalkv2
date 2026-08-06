@@ -2958,7 +2958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 365cd9455175cba4abb6543170546e12, type: 3}
   m_Name: DmxDevice
   m_EditorClassIdentifier: 
-  Value: 1
+  Value: 0.6
   NormalizedCurve:
     serializedVersion: 2
     m_Curve:

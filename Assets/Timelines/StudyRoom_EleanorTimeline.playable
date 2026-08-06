@@ -3897,7 +3897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 365cd9455175cba4abb6543170546e12, type: 3}
   m_Name: DmxDevice
   m_EditorClassIdentifier: 
-  Value: 1
+  Value: 0.6
   NormalizedCurve:
     serializedVersion: 2
     m_Curve:
@@ -4141,7 +4141,7 @@ MonoBehaviour:
   m_InfiniteClipApplyFootIK: 1
   mInfiniteClipLoop: 0
   m_MatchTargetFields: 63
-  m_Position: {x: -0.57242197, y: 0.024167553, z: 2.8605769}
+  m_Position: {x: -0.7605057, y: 0.024167553, z: 1.9279767}
   m_EulerAngles: {x: 0, y: 110.08, z: 0}
   m_AvatarMask: {fileID: 0}
   m_ApplyAvatarMask: 1
@@ -4714,7 +4714,7 @@ MonoBehaviour:
   m_InfiniteClipApplyFootIK: 1
   mInfiniteClipLoop: 0
   m_MatchTargetFields: 63
-  m_Position: {x: 1.1137363, y: 0.024167553, z: 2.4546344}
+  m_Position: {x: 0.97686744, y: 0.024167553, z: 1.5330014}
   m_EulerAngles: {x: 0, y: -161.708, z: 0}
   m_AvatarMask: {fileID: 0}
   m_ApplyAvatarMask: 1

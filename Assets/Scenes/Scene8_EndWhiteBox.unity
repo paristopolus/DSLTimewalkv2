@@ -2051,14 +2051,14 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 4
+  shakeSpeedThreshold: 1.5
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 423195580}
   rightAttachPoint: {fileID: 1537818794}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -3432,6 +3432,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Railings
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 222cbce048e3d80409fc8181d5de94ca, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 222cbce048e3d80409fc8181d5de94ca, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -4390,14 +4394,14 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 4
+  shakeSpeedThreshold: 1.5
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 1819481984}
   rightAttachPoint: {fileID: 0}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -5627,7 +5631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &947207688
 Transform:
   m_ObjectHideFlags: 0
@@ -9013,14 +9017,14 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 4
+  shakeSpeedThreshold: 1.5
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 1332867932}
   rightAttachPoint: {fileID: 1332867932}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -9214,14 +9218,14 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 4
+  shakeSpeedThreshold: 1.5
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 1819481985}
   rightAttachPoint: {fileID: 1819481985}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -11025,14 +11029,14 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 4
+  shakeSpeedThreshold: 1.5
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 1400991785}
   rightAttachPoint: {fileID: 1400991785}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -11120,14 +11124,14 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 4
+  shakeSpeedThreshold: 1.5
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 1400991787}
   rightAttachPoint: {fileID: 1400991787}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -12960,14 +12964,14 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 4
+  shakeSpeedThreshold: 1.5
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 530637538}
   rightAttachPoint: {fileID: 530637538}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -17248,14 +17252,14 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   enableShakeRelease: 1
-  shakeSpeedThreshold: 4
+  shakeSpeedThreshold: 1.5
   shakeSampleWindow: 0.5
   shakeGraceSeconds: 0.5
   leftAttachPoint: {fileID: 1524704394}
   rightAttachPoint: {fileID: 1894525657}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:

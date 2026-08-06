@@ -17,6 +17,8 @@
 		<Avatar Name="Lisa" AvatarResource="Avatars/PFB_Lisa" RigName="Character Creator AR" />
 		<Avatar Name="AvatarLady" AvatarResource="Avatars/Avatar_Lady_1/PFB_Avatar" RigName="Character Creator AR" />
 		<Avatar Name="Jodd" AvatarResource="Avatars/Jodd/Jodd" RigName="Mixamo" />
+		<Avatar Name="Diamon" AvatarResource="Avatars/Diamon/Diamon_Avatar" RigName="Character Creator AR" />
+		<Avatar Name="Henry" AvatarResource="Avatars/Henry/Henry_Avatar" RigName="Character Creator AR" />
 	</Avatars>
 	<ExperienceProperties />
 	<TrackedProps />

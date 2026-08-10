@@ -231,11 +231,11 @@ Material:
     - _WrinkleValueSet12CR: {r: 0, g: 0, b: 0, a: 0}
     - _WrinkleValueSet1AL: {r: 0, g: 0, b: 0, a: 0}
     - _WrinkleValueSet1AR: {r: 0, g: 0, b: 0, a: 0}
-    - _WrinkleValueSet1BL: {r: 0, g: 0, b: 0.000000013358155, a: 0}
-    - _WrinkleValueSet1BR: {r: 0, g: 0, b: 0.000000013358155, a: 0}
+    - _WrinkleValueSet1BL: {r: 0, g: 0, b: 0, a: 0}
+    - _WrinkleValueSet1BR: {r: 0, g: 0, b: 0, a: 0}
     - _WrinkleValueSet2L: {r: 0, g: 0, b: 0, a: 0}
     - _WrinkleValueSet2R: {r: 0, g: 0, b: 0, a: 0}
-    - _WrinkleValueSet3DB: {r: 0.0000013569121, g: 0.0000013569121, b: 0.0000013569121, a: 0.0000013569121}
+    - _WrinkleValueSet3DB: {r: 0, g: 0, b: 0, a: 0}
     - _WrinkleValueSet3L: {r: 0, g: 0, b: 0, a: 0}
     - _WrinkleValueSet3R: {r: 0, g: 0, b: 0, a: 0}
     - _WrinkleValueSetBCCB: {r: 0, g: 0, b: 0, a: 0}

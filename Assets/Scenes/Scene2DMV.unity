@@ -2116,6 +2116,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkipButton
       objectReference: {fileID: 0}
+    - target: {fileID: 7788064665538658095, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8291395705375940353, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
       propertyPath: OnTriggerValidated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -42712,7 +42716,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4723954526895401603, guid: c82520b97c6bfb94291096ae8c17d60e, type: 3}
       propertyPath: m_SceneBindings.Array.size
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4723954526895401603, guid: c82520b97c6bfb94291096ae8c17d60e, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].key
@@ -42773,7 +42777,7 @@ PrefabInstance:
     - target: {fileID: 4723954526895401603, guid: c82520b97c6bfb94291096ae8c17d60e, type: 3}
       propertyPath: m_SceneBindings.Array.data[14].key
       value: 
-      objectReference: {fileID: -8054954974469336392, guid: 70266a06039a88a4dac55ec05a5aabf1, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 4723954526895401603, guid: c82520b97c6bfb94291096ae8c17d60e, type: 3}
       propertyPath: m_SceneBindings.Array.data[0].value
       value: 

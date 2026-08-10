@@ -1719,6 +1719,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkipButton
       objectReference: {fileID: 0}
+    - target: {fileID: 7788064665538658095, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8291395705375940353, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
       propertyPath: OnTriggerValidated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2908,8 +2912,6 @@ PlayableDirector:
     value: {fileID: 1903722832}
   - key: {fileID: -1701929476501381974, guid: 4250407c9078baf46b8a6b38d168e5c5, type: 2}
     value: {fileID: 1633303272}
-  - key: {fileID: 4926095200867027252, guid: 4250407c9078baf46b8a6b38d168e5c5, type: 2}
-    value: {fileID: 1613285412}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1169055957
@@ -4293,74 +4295,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593417162}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &1613285411
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3292825660058612151, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292825660058612151, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292825660058612151, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292825660058612151, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292825660058612151, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292825660058612151, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292825660058612151, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292825660058612151, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292825660058612151, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3292825660058612151, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4663457917577159364, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
-      propertyPath: m_Name
-      value: FloorRumble
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
---- !u!114 &1613285412 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8255541893015973858, guid: a932f9bc6eb89a04d8792249d2d9b9e3, type: 3}
-  m_PrefabInstance: {fileID: 1613285411}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ab09c20d9c7a8446b0e89f8c735ed9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1615343373
 GameObject:
   m_ObjectHideFlags: 0
@@ -15450,4 +15384,3 @@ SceneRoots:
   - {fileID: 1174777818}
   - {fileID: 847388742}
   - {fileID: 1633303271}
-  - {fileID: 1613285411}

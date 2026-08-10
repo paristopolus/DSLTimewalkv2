@@ -1876,6 +1876,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkipButton
       objectReference: {fileID: 0}
+    - target: {fileID: 7788064665538658095, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8291395705375940353, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
       propertyPath: OnTriggerValidated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -6418,10 +6422,10 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1791250069}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: Play
-          m_Mode: 1
+        - m_Target: {fileID: 1791250072}
+          m_TargetAssemblyTypeName: RvSdk.Component.NetworkSound, com.artanim.common
+          m_MethodName: PlayOnce
+          m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6487,6 +6491,8 @@ PlayableDirector:
     value: {fileID: 1309866926}
   - key: {fileID: 957633124443058582, guid: 06e5f3add07d6ce41860b29f4329d9e2, type: 2}
     value: {fileID: 1263561490}
+  - key: {fileID: 116459709362495560, guid: 06e5f3add07d6ce41860b29f4329d9e2, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!1001 &1211089001
@@ -10355,7 +10361,8 @@ GameObject:
   - component: {fileID: 1791250070}
   - component: {fileID: 1791250069}
   - component: {fileID: 1791250068}
-  - component: {fileID: 1791250071}
+  - component: {fileID: 1791250072}
+  - component: {fileID: 1791250073}
   m_Layer: 0
   m_Name: PersistentAudio
   m_TagString: Untagged
@@ -10486,7 +10493,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1791250071
+--- !u!114 &1791250072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791250067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2e3b8280856bd74d8470aba75e091ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectId: c30abcff-f5b7-457b-bf54-fd0189e27d2a
+  MuteOnServer: 1
+  AudioClips:
+  - {fileID: 8300000, guid: a31c8e28278266e4e8ac89354808191d, type: 3}
+  PlayOnAwake: 0
+  AutoPlayIndex: 0
+  AutoPlayLoop: 0
+  DefaultFadeTime: 55
+--- !u!114 &1791250073
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10532,7 +10559,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  persistentAudioObjectName: 
+  persistentAudioObjectName: PersistentAudio
 --- !u!1 &1792148182 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5274415454835785800, guid: d7231d6aa61b3f14caec73a185c8cf4b, type: 3}

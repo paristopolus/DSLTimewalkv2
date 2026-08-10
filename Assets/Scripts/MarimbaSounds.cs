@@ -30,9 +30,12 @@ public class MarimbaSounds : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (clientToServerTrigger != null)
+        if (other.transform.name == drumstickObject.name)
         {
-            clientToServerTrigger.Trigger();
+            if (clientToServerTrigger != null)
+            {
+                clientToServerTrigger.Trigger();
+            }
         }
     }
 }

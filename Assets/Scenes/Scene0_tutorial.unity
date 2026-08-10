@@ -1528,6 +1528,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cymbal_2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 147ddd90a00cb5b4ba5e2d874d392ed1, type: 3}
+      propertyPath: m_TagString
+      value: DrumInstrument
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -2570,6 +2574,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkipButton
       objectReference: {fileID: 0}
+    - target: {fileID: 7788064665538658095, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8291395705375940353, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
       propertyPath: OnTriggerValidated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3443,6 +3451,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e63d0440d607e9c4e9db3cab7b17e313, type: 3}
       insertIndex: -1
       addedObject: {fileID: 973040372}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e63d0440d607e9c4e9db3cab7b17e313, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 973040376}
   m_SourcePrefab: {fileID: 100100000, guid: e63d0440d607e9c4e9db3cab7b17e313, type: 3}
 --- !u!1 &973040353 stripped
 GameObject:
@@ -3705,10 +3716,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectId: 6b2d195d-69fd-4142-8340-9adf75202e25
-  SyncMode: 0
+  SyncMode: 2
   OnTrigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 973040376}
+        m_TargetAssemblyTypeName: RvSdk.Component.NetworkSound, com.artanim.common
+        m_MethodName: PlayOnce
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTriggerWithArg:
     m_PersistentCalls:
       m_Calls: []
@@ -3752,6 +3775,26 @@ MonoBehaviour:
   IsSource: 0
   UseSmoothing: 0
   <SyncedTransformSmoothingSO>k__BackingField: {fileID: 0}
+--- !u!114 &973040376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973040353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2e3b8280856bd74d8470aba75e091ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectId: 65c67bb0-0d0e-4d1c-af37-8ac3515a693e
+  MuteOnServer: 1
+  AudioClips:
+  - {fileID: 8300000, guid: 6d88a21b5099d144092026574b7a38f8, type: 3}
+  PlayOnAwake: 0
+  AutoPlayIndex: 0
+  AutoPlayLoop: 0
+  DefaultFadeTime: 0
 --- !u!1 &991453375
 GameObject:
   m_ObjectHideFlags: 0
@@ -6786,6 +6829,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e63d0440d607e9c4e9db3cab7b17e313, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1555919818}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e63d0440d607e9c4e9db3cab7b17e313, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1555919822}
   m_SourcePrefab: {fileID: 100100000, guid: e63d0440d607e9c4e9db3cab7b17e313, type: 3}
 --- !u!4 &1555919799 stripped
 Transform:
@@ -7048,10 +7094,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectId: 64c8c9bc-b851-4cae-8001-1f17c919abda
-  SyncMode: 0
+  SyncMode: 2
   OnTrigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1555919822}
+        m_TargetAssemblyTypeName: RvSdk.Component.NetworkSound, com.artanim.common
+        m_MethodName: PlayOnce
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTriggerWithArg:
     m_PersistentCalls:
       m_Calls: []
@@ -7095,6 +7153,26 @@ MonoBehaviour:
   IsSource: 0
   UseSmoothing: 0
   <SyncedTransformSmoothingSO>k__BackingField: {fileID: 0}
+--- !u!114 &1555919822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555919800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2e3b8280856bd74d8470aba75e091ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectId: 97827b48-f675-40db-9db3-782f3024e6be
+  MuteOnServer: 1
+  AudioClips:
+  - {fileID: 8300000, guid: 6d88a21b5099d144092026574b7a38f8, type: 3}
+  PlayOnAwake: 0
+  AutoPlayIndex: 0
+  AutoPlayLoop: 0
+  DefaultFadeTime: 0
 --- !u!1 &1585963645
 GameObject:
   m_ObjectHideFlags: 0
@@ -8959,9 +9037,6 @@ PrefabInstance:
       addedObject: {fileID: 1976807056}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 147ddd90a00cb5b4ba5e2d874d392ed1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1976807058}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 147ddd90a00cb5b4ba5e2d874d392ed1, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1976807061}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 147ddd90a00cb5b4ba5e2d874d392ed1, type: 3}
       insertIndex: -1
@@ -9695,10 +9770,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObjectId: b7297b2a-eb4c-4f09-91a8-b91f0e67d162
-  SyncMode: 0
+  SyncMode: 2
   OnTrigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1976807057}
+        m_TargetAssemblyTypeName: RvSdk.Component.NetworkSound, com.artanim.common
+        m_MethodName: PlayOnce
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTriggerWithArg:
     m_PersistentCalls:
       m_Calls: []
@@ -9722,18 +9809,6 @@ MonoBehaviour:
   AutoPlayIndex: 0
   AutoPlayLoop: 0
   DefaultFadeTime: 0
---- !u!114 &1976807058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825513004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e59167d2554e9a448d81c7dd0b79edb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1976807059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12340,7 +12415,7 @@ MonoBehaviour:
   rightAttachPoint: {fileID: 398157168017744184}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -12680,7 +12755,7 @@ MonoBehaviour:
   rightAttachPoint: {fileID: 6787415901349440480}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:

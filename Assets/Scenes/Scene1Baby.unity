@@ -2667,7 +2667,7 @@ MonoBehaviour:
   rightAttachPoint: {fileID: 5562103}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -2971,7 +2971,7 @@ MonoBehaviour:
   rightAttachPoint: {fileID: 476153888}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -3402,7 +3402,7 @@ PlayableDirector:
     value: {fileID: 2024339141}
   - key: {fileID: 7827831954238395465, guid: 2213404dfa6db0b4e8216b67978e516c, type: 2}
     value: {fileID: 2024339141}
-  - key: {fileID: -3673425189812166284, guid: 2213404dfa6db0b4e8216b67978e516c, type: 2}
+  - key: {fileID: -1751461842020633875, guid: 2213404dfa6db0b4e8216b67978e516c, type: 2}
     value: {fileID: 4734000624397562841}
   m_ExposedReferences:
     m_References: []
@@ -4450,7 +4450,7 @@ MonoBehaviour:
   rightAttachPoint: {fileID: 1636394407}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -5105,7 +5105,7 @@ MonoBehaviour:
   rightAttachPoint: {fileID: 1423480620}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -5887,7 +5887,7 @@ MonoBehaviour:
   rightAttachPoint: {fileID: 776650108}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -7952,7 +7952,7 @@ MonoBehaviour:
   rightAttachPoint: {fileID: 2069416604}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:
@@ -9730,7 +9730,7 @@ MonoBehaviour:
   rightAttachPoint: {fileID: 1101611858}
   localAttachOffset: {x: 0, y: 0, z: 0}
   localAttachEuler: {x: 0, y: 0, z: 0}
-  matchHandRotation: 0
+  matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:
     m_PersistentCalls:

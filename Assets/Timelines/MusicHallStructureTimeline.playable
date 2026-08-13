@@ -1400,7 +1400,7 @@ MonoBehaviour:
   WaveName: 
   Clip: {fileID: 0}
   AudioBankEntry: {fileID: -6149281567023184995, guid: 7b230c2203ab58244ba7d8ec01e0dd80, type: 2}
-  Volume: 10
+  Volume: 1
   VolumeCurve:
     serializedVersion: 2
     m_Curve:

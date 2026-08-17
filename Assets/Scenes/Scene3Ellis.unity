@@ -1354,6 +1354,22 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5537586119033516258, guid: 916c842670b4ed946b14e1e61fea8101, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 89.297005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537586119033516258, guid: 916c842670b4ed946b14e1e61fea8101, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 79.799995
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537586119033516258, guid: 916c842670b4ed946b14e1e61fea8101, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5537586119033516258, guid: 916c842670b4ed946b14e1e61fea8101, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.279
+      objectReference: {fileID: 0}
     - target: {fileID: 7168026346166589519, guid: 916c842670b4ed946b14e1e61fea8101, type: 3}
       propertyPath: m_Name
       value: Piano_LegsSeparate

@@ -34,6 +34,7 @@ MonoBehaviour:
   - com.unity.ide.visualstudio@2.0.22 version 2.0.22
   - com.unity.ide.vscode@1.2.5 version 1.2.5
   - com.unity.purchasing@4.11.0 version 4.11.0
+  - com.unity.recorder@4.0.3 version 4.0.3
   - com.unity.render-pipelines.universal@14.0.11 version 14.0.11
   - com.unity.test-framework@1.1.33 version 1.1.33
   - com.unity.textmeshpro@3.0.7 version 3.0.7

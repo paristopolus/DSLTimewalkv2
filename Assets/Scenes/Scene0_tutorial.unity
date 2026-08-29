@@ -1087,6 +1087,8 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1771436118}
+  - {fileID: 955714442}
+  - {fileID: 1347834218}
   m_Father: {fileID: 326222336}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &359431986
@@ -1176,6 +1178,37 @@ MonoBehaviour:
   dissolveRate: 0.01
   refreshRate: 0.025
   gamePlay: {fileID: 503592699}
+--- !u!1 &384465572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 384465573}
+  m_Layer: 0
+  m_Name: CymbalRelease2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &384465573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384465572}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.6062844, y: 0.32957086, z: 0.4016578, w: 0.6020576}
+  m_LocalPosition: {x: -0.09354742, y: 1.2221434, z: 0.2995347}
+  m_LocalScale: {x: 0.0017751527, y: 0.0024448698, z: 0.0035543127}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 692765691}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &395740385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1567,6 +1600,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 147ddd90a00cb5b4ba5e2d874d392ed1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 441869965}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 147ddd90a00cb5b4ba5e2d874d392ed1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 441869969}
     - targetCorrespondingSourceObject: {fileID: 1084761860999243845, guid: 147ddd90a00cb5b4ba5e2d874d392ed1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1011623285}
@@ -1692,10 +1728,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 0.5
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 0}
   rightAttachPoint: {fileID: 0}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -1771,6 +1804,26 @@ MonoBehaviour:
   IsSource: 0
   UseSmoothing: 0
   <SyncedTransformSmoothingSO>k__BackingField: {fileID: 0}
+--- !u!114 &441869969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441869956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8e2c41d0f74a9e8a3c5d17e9b20468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbable: {fileID: 441869965}
+  enableTableRelease: 1
+  tableRestPose: {fileID: 384465573}
+  releaseDistance: 0.35
+  leaveDistance: 0.5
+  releaseDwellSeconds: 0.2
+  grabGraceSeconds: 0.4
+  snapToTableOnRelease: 1
 --- !u!1001 &466751413
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1801,15 +1854,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4493800617041996, guid: 0908c68130cc9bf419f4a56e93d494f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.95799994
+      value: -0.958
       objectReference: {fileID: 0}
     - target: {fileID: 4493800617041996, guid: 0908c68130cc9bf419f4a56e93d494f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.077
+      value: -0.209
       objectReference: {fileID: 0}
     - target: {fileID: 4493800617041996, guid: 0908c68130cc9bf419f4a56e93d494f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.584
+      value: -4.568
       objectReference: {fileID: 0}
     - target: {fileID: 4493800617041996, guid: 0908c68130cc9bf419f4a56e93d494f4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1877,6 +1930,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1760320108444326, guid: 0908c68130cc9bf419f4a56e93d494f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 872218048}
+    - targetCorrespondingSourceObject: {fileID: 1760320108444326, guid: 0908c68130cc9bf419f4a56e93d494f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 872218053}
   m_SourcePrefab: {fileID: 100100000, guid: 0908c68130cc9bf419f4a56e93d494f4, type: 3}
 --- !u!1 &466751414 stripped
 GameObject:
@@ -2007,7 +2063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitForVoiceOverTime: 5
-  instrumentPlayingTime: 20
+  instrumentPlayingTime: 90
   m_GameObjectList:
   - {fileID: 1555919800}
   - {fileID: 920530876}
@@ -2323,6 +2379,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 370113682991810551, guid: 44472bdd040439c4f8c13ad0d942e87a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1666758425}
+    - targetCorrespondingSourceObject: {fileID: 370113682991810551, guid: 44472bdd040439c4f8c13ad0d942e87a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 593688534}
+    - targetCorrespondingSourceObject: {fileID: 370113682991810551, guid: 44472bdd040439c4f8c13ad0d942e87a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 932854229}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 664517093984652082, guid: 44472bdd040439c4f8c13ad0d942e87a, type: 3}
       insertIndex: -1
@@ -2492,6 +2554,37 @@ VisualEffect:
         m_Overridden: 1
     m_Bool:
       m_Array: []
+--- !u!1 &593688533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 593688534}
+  m_Layer: 0
+  m_Name: MaracaRelease
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &593688534
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 593688533}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.17497359, y: 1.2075386, z: -0.106422216}
+  m_LocalScale: {x: 1.7857139, y: 1.7857143, z: 1.7857139}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 595846662}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &595846657 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 664517093984652082, guid: 44472bdd040439c4f8c13ad0d942e87a, type: 3}
@@ -2831,6 +2924,8 @@ Transform:
   m_LocalScale: {x: 1, y: 0.8, z: 1.782}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 888723347}
+  - {fileID: 384465573}
   - {fileID: 578507525}
   m_Father: {fileID: 326222336}
   m_LocalEulerAnglesHint: {x: 0, y: -27.825, z: 0}
@@ -2952,6 +3047,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 466751423}
   m_LocalEulerAnglesHint: {x: 180, y: 90, z: 90}
+--- !u!1 &760096504
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 760096505}
+  m_Layer: 0
+  m_Name: TalkingDrumStickRelease
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &760096505
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760096504}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.33095217, y: 0.6721869, z: 0.58948034, w: 0.30190802}
+  m_LocalPosition: {x: -0.36397442, y: 1.2416214, z: -0.08971721}
+  m_LocalScale: {x: 0.5737331, y: 0.6732274, z: 1.0519147}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1542627313}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &797186392
 GameObject:
   m_ObjectHideFlags: 0
@@ -3145,10 +3271,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 1
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 719633998}
   rightAttachPoint: {fileID: 719633998}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -3224,11 +3347,93 @@ MonoBehaviour:
   IsSource: 0
   UseSmoothing: 0
   <SyncedTransformSmoothingSO>k__BackingField: {fileID: 0}
+--- !u!114 &872218053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466751414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8e2c41d0f74a9e8a3c5d17e9b20468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbable: {fileID: 872218048}
+  enableTableRelease: 1
+  tableRestPose: {fileID: 760096505}
+  releaseDistance: 0.35
+  leaveDistance: 0.5
+  releaseDwellSeconds: 0.2
+  grabGraceSeconds: 0.4
+  snapToTableOnRelease: 1
+--- !u!1 &888723346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 888723347}
+  m_Layer: 0
+  m_Name: CymbalRelease
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &888723347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888723346}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.6767873, y: 0.13474652, z: 0.20483902, w: 0.6941494}
+  m_LocalPosition: {x: 0.041124716, y: 1.2555112, z: -0.25511536}
+  m_LocalScale: {x: 0.0024492813, y: 0.0017728343, z: 0.003554313}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 692765691}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &920530876 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1355977567162416, guid: b93e0c05e880c67449fd477c6411622e, type: 3}
   m_PrefabInstance: {fileID: 1613901783}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &932854228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 932854229}
+  m_Layer: 0
+  m_Name: Maracas2Release
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &932854229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932854228}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.20265219, y: 1.2414671, z: -0.11056796}
+  m_LocalScale: {x: 1.7857141, y: 1.7857144, z: 1.7857141}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 595846662}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &936251112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3374,6 +3579,37 @@ MonoBehaviour:
   dissolveRate: 0.01
   refreshRate: 0.025
   gamePlay: {fileID: 503592699}
+--- !u!1 &955714441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 955714442}
+  m_Layer: 0
+  m_Name: TriangleRelease
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &955714442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955714441}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0.058928728, y: 1.1978958, z: 0.27143002}
+  m_LocalScale: {x: 0.005357143, y: 0.005357144, z: 0.005357144}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 359431985}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &973040352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3476,6 +3712,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e63d0440d607e9c4e9db3cab7b17e313, type: 3}
       insertIndex: -1
       addedObject: {fileID: 973040376}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e63d0440d607e9c4e9db3cab7b17e313, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 973040379}
   m_SourcePrefab: {fileID: 100100000, guid: e63d0440d607e9c4e9db3cab7b17e313, type: 3}
 --- !u!1 &973040353 stripped
 GameObject:
@@ -3706,10 +3945,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 2
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 109576366}
   rightAttachPoint: {fileID: 182367003}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -3817,6 +4053,26 @@ MonoBehaviour:
   AutoPlayIndex: 0
   AutoPlayLoop: 0
   DefaultFadeTime: 0
+--- !u!114 &973040379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973040353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8e2c41d0f74a9e8a3c5d17e9b20468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbable: {fileID: 973040372}
+  enableTableRelease: 1
+  tableRestPose: {fileID: 593688534}
+  releaseDistance: 0.35
+  leaveDistance: 0.5
+  releaseDwellSeconds: 0.2
+  grabGraceSeconds: 0.4
+  snapToTableOnRelease: 1
 --- !u!1 &991453375
 GameObject:
   m_ObjectHideFlags: 0
@@ -5786,6 +6042,37 @@ VisualEffect:
         m_Overridden: 1
     m_Bool:
       m_Array: []
+--- !u!1 &1347834217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1347834218}
+  m_Layer: 0
+  m_Name: TriangleStickRelease
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1347834218
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347834217}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0.388, y: 1.1887885, z: 0.27143002}
+  m_LocalScale: {x: 0.005357143, y: 0.005357144, z: 0.005357144}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 359431985}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1351956918
 GameObject:
   m_ObjectHideFlags: 0
@@ -6663,6 +6950,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1270186406}
+  - {fileID: 760096505}
+  - {fileID: 1814828195}
   m_Father: {fileID: 326222336}
   m_LocalEulerAnglesHint: {x: 0, y: 6.104, z: 0}
 --- !u!65 &1542627314
@@ -6854,6 +7143,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e63d0440d607e9c4e9db3cab7b17e313, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1555919822}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e63d0440d607e9c4e9db3cab7b17e313, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1555919826}
   m_SourcePrefab: {fileID: 100100000, guid: e63d0440d607e9c4e9db3cab7b17e313, type: 3}
 --- !u!4 &1555919799 stripped
 Transform:
@@ -7084,10 +7376,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 2
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 644076969}
   rightAttachPoint: {fileID: 309508257}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -7195,6 +7484,26 @@ MonoBehaviour:
   AutoPlayIndex: 0
   AutoPlayLoop: 0
   DefaultFadeTime: 0
+--- !u!114 &1555919826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1555919800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8e2c41d0f74a9e8a3c5d17e9b20468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbable: {fileID: 1555919818}
+  enableTableRelease: 1
+  tableRestPose: {fileID: 932854229}
+  releaseDistance: 0.35
+  leaveDistance: 0.5
+  releaseDwellSeconds: 0.2
+  grabGraceSeconds: 0.4
+  snapToTableOnRelease: 1
 --- !u!1 &1585963645
 GameObject:
   m_ObjectHideFlags: 0
@@ -8468,6 +8777,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1760320108444326, guid: 0908c68130cc9bf419f4a56e93d494f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1783584114}
+    - targetCorrespondingSourceObject: {fileID: 1760320108444326, guid: 0908c68130cc9bf419f4a56e93d494f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1783584119}
   m_SourcePrefab: {fileID: 100100000, guid: 0908c68130cc9bf419f4a56e93d494f4, type: 3}
 --- !u!1 &1783584103 stripped
 GameObject:
@@ -8582,10 +8894,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 1
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 2320251}
   rightAttachPoint: {fileID: 2320251}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -8661,6 +8970,26 @@ MonoBehaviour:
   IsSource: 0
   UseSmoothing: 0
   <SyncedTransformSmoothingSO>k__BackingField: {fileID: 0}
+--- !u!114 &1783584119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1783584103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8e2c41d0f74a9e8a3c5d17e9b20468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbable: {fileID: 1783584114}
+  enableTableRelease: 1
+  tableRestPose: {fileID: 1814828195}
+  releaseDistance: 0.35
+  leaveDistance: 0.5
+  releaseDwellSeconds: 0.2
+  grabGraceSeconds: 0.4
+  snapToTableOnRelease: 1
 --- !u!1 &1798972714 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 546808314628787136, guid: 17f8eecf5d03e264b95deb933b2f2262, type: 3}
@@ -8734,10 +9063,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 2
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 7654599522796380644}
   rightAttachPoint: {fileID: 7654599522796380644}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -8793,6 +9119,26 @@ MonoBehaviour:
   IsSource: 0
   UseSmoothing: 0
   <SyncedTransformSmoothingSO>k__BackingField: {fileID: 0}
+--- !u!114 &1798972730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798972714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8e2c41d0f74a9e8a3c5d17e9b20468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbable: {fileID: 1798972717}
+  enableTableRelease: 1
+  tableRestPose: {fileID: 955714442}
+  releaseDistance: 0.35
+  leaveDistance: 0.5
+  releaseDwellSeconds: 0.2
+  grabGraceSeconds: 0.4
+  snapToTableOnRelease: 1
 --- !u!1 &1805334169 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6698607749453124677, guid: 68425f85656918745bea1211c0e327c3, type: 3}
@@ -8954,6 +9300,37 @@ VisualEffect:
         m_Overridden: 1
     m_Bool:
       m_Array: []
+--- !u!1 &1814828194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1814828195}
+  m_Layer: 0
+  m_Name: TalkingDrumStickRelease2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1814828195
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814828194}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.2170859, y: 0.6680296, z: 0.68435526, w: 0.19562249}
+  m_LocalPosition: {x: -0.34323278, y: 1.2525142, z: 0.16331555}
+  m_LocalScale: {x: 0.68912345, y: 0.55739826, z: 1.0708566}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1542627313}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1825513003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9066,6 +9443,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 147ddd90a00cb5b4ba5e2d874d392ed1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1976807059}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 147ddd90a00cb5b4ba5e2d874d392ed1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1976807062}
     - targetCorrespondingSourceObject: {fileID: 1084761860999243845, guid: 147ddd90a00cb5b4ba5e2d874d392ed1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 634464477}
@@ -9560,10 +9940,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 2
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 7654599522796380645}
   rightAttachPoint: {fileID: 7654599522796380645}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -9639,6 +10016,26 @@ MonoBehaviour:
   IsSource: 0
   UseSmoothing: 0
   <SyncedTransformSmoothingSO>k__BackingField: {fileID: 0}
+--- !u!114 &1890133286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890133278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8e2c41d0f74a9e8a3c5d17e9b20468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbable: {fileID: 1890133279}
+  enableTableRelease: 1
+  tableRestPose: {fileID: 1347834218}
+  releaseDistance: 0.35
+  leaveDistance: 0.5
+  releaseDwellSeconds: 0.2
+  grabGraceSeconds: 0.4
+  snapToTableOnRelease: 1
 --- !u!1 &1960548240 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3005952028482485170, guid: 68425f85656918745bea1211c0e327c3, type: 3}
@@ -9847,10 +10244,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 0.5
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 0}
   rightAttachPoint: {fileID: 0}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -9906,6 +10300,26 @@ MonoBehaviour:
   IsSource: 0
   UseSmoothing: 0
   <SyncedTransformSmoothingSO>k__BackingField: {fileID: 0}
+--- !u!114 &1976807062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825513004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b8e2c41d0f74a9e8a3c5d17e9b20468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grabbable: {fileID: 1976807059}
+  enableTableRelease: 1
+  tableRestPose: {fileID: 888723347}
+  releaseDistance: 0.35
+  leaveDistance: 0.5
+  releaseDwellSeconds: 0.2
+  grabGraceSeconds: 0.4
+  snapToTableOnRelease: 1
 --- !u!1 &2021152504 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1634890836189944844, guid: 68425f85656918745bea1211c0e327c3, type: 3}
@@ -10118,6 +10532,8 @@ PlayableDirector:
     value: {fileID: 2066982024}
   - key: {fileID: -1562846646767597158, guid: a98ebd02344d01e498d41f2a351e0d30, type: 2}
     value: {fileID: 2066982024}
+  - key: {fileID: 700582740157633323, guid: a98ebd02344d01e498d41f2a351e0d30, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &2066982026
@@ -12429,10 +12845,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 4
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 398157168017744184}
   rightAttachPoint: {fileID: 398157168017744184}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -12769,10 +13182,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 4
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 6787415901349440480}
   rightAttachPoint: {fileID: 6787415901349440480}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -13202,6 +13612,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 546808314628787136, guid: 17f8eecf5d03e264b95deb933b2f2262, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1798972717}
+    - targetCorrespondingSourceObject: {fileID: 546808314628787136, guid: 17f8eecf5d03e264b95deb933b2f2262, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1798972730}
     - targetCorrespondingSourceObject: {fileID: 939125951107053599, guid: 17f8eecf5d03e264b95deb933b2f2262, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1890133282}
@@ -13214,6 +13627,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 939125951107053599, guid: 17f8eecf5d03e264b95deb933b2f2262, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1890133279}
+    - targetCorrespondingSourceObject: {fileID: 939125951107053599, guid: 17f8eecf5d03e264b95deb933b2f2262, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1890133286}
   m_SourcePrefab: {fileID: 100100000, guid: 17f8eecf5d03e264b95deb933b2f2262, type: 3}
 --- !u!4 &7654599522796380644 stripped
 Transform:

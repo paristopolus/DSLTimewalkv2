@@ -11,7 +11,7 @@ using UnityEngine.Serialization;
 [RequireComponent(typeof(NetworkSyncedTransform))]
 [RequireComponent(typeof(NetworkSyncedInteger))]
 [RequireComponent(typeof(ClientToServerTrigger))]
-public class DreamscapeGrabbable : MonoBehaviour
+public class DreamscapeClapGrabbable : MonoBehaviour
 {
     // synced int value when nobody is holding this object
     public const int HolderNone = -1;
@@ -39,7 +39,17 @@ public class DreamscapeGrabbable : MonoBehaviour
     // hand must stay within this distance for grabDwellSeconds before grab fires
     [SerializeField] float grabRadius = 0.4f;
     [SerializeField] float grabDwellSeconds = 0.15f;
-    // after drop, ignore proximity grab for this long unless ForceReleaseAllowingRegrab
+
+    [Header("Clap release")]
+    // optional drop by bringing both hands together while held
+    [SerializeField] bool enableClapRelease = true;
+    // wrist bones must be at least this close to count as a clap (meters)
+    [SerializeField] float clapDistance = 0.2f;
+    // hands must open at least this far before the next clap can fire
+    [SerializeField] float clapResetDistance = 0.35f;
+    // blocks clap-release briefly after grab
+    [SerializeField] float clapGraceSeconds = 0.5f;
+    // after drop, ignore proximity grab for this long
     [SerializeField] float regrabBlockSeconds = 0.5f;
 
     [Header("Attach")]
@@ -67,9 +77,10 @@ public class DreamscapeGrabbable : MonoBehaviour
     bool _placementLocked;
     HumanBodyBones _activeHand = HumanBodyBones.LastBone;
     HumanBodyBones _pendingGrabHand = HumanBodyBones.LastBone;
+    float _clapGraceTimer;
+    bool _handsWereApart;
     float _regrabBlockTimer;
     bool _mustLeaveBeforeRegrab;
-    bool _allowImmediateRegrabOnRelease;
     Quaternion _rotationWhileHeld;
     bool _syncedRotationWhileHeld;
     Vector3 _gripOffsetInObjectSpace;
@@ -82,7 +93,6 @@ public class DreamscapeGrabbable : MonoBehaviour
     static readonly HashSet<string> RegisteredTransformIds = new HashSet<string>();
 
     public bool IsGrabbed => _isGrabbedLocally;
-    public HumanBodyBones ActiveHand => _activeHand;
     public bool IsPlacementLocked => _placementLocked;
     public NetworkSyncedInteger StateSync => _stateSync;
     public int StateValue => _stateSync != null ? _stateSync.Value : PlaceableObjectNetworkState.Free;
@@ -128,6 +138,9 @@ public class DreamscapeGrabbable : MonoBehaviour
 
     void Update()
     {
+        if (_isGrabbedLocally && _clapGraceTimer > 0f)
+            _clapGraceTimer -= Time.deltaTime;
+
         if (!_isGrabbedLocally && _regrabBlockTimer > 0f)
             _regrabBlockTimer -= Time.deltaTime;
 
@@ -364,9 +377,10 @@ public class DreamscapeGrabbable : MonoBehaviour
         _syncedTransform.IsSource = true;
         _syncedRotationWhileHeld = _syncedTransform.SyncRotation;
         _syncedTransform.SyncRotation = matchHandRotation;
+        ResetClapTracking();
+        _clapGraceTimer = clapGraceSeconds;
         _regrabBlockTimer = 0f;
         _mustLeaveBeforeRegrab = false;
-        _allowImmediateRegrabOnRelease = false;
 
         onGrabbed.Invoke();
         UpdateHeldPose();
@@ -384,19 +398,10 @@ public class DreamscapeGrabbable : MonoBehaviour
         _pendingInitialGrabSnap = false;
         _syncedTransform.IsSource = false;
         _syncedTransform.SyncRotation = _syncedRotationWhileHeld;
+        ResetClapTracking();
+        _regrabBlockTimer = regrabBlockSeconds;
+        _mustLeaveBeforeRegrab = true;
 
-        if (_allowImmediateRegrabOnRelease)
-        {
-            _regrabBlockTimer = 0f;
-            _mustLeaveBeforeRegrab = false;
-        }
-        else
-        {
-            _regrabBlockTimer = regrabBlockSeconds;
-            _mustLeaveBeforeRegrab = true;
-        }
-
-        _allowImmediateRegrabOnRelease = false;
         onReleased.Invoke();
     }
 
@@ -515,12 +520,37 @@ public class DreamscapeGrabbable : MonoBehaviour
 
     bool ShouldRelease()
     {
-        return !TryGetHandTransform(_activeHand, out _);
+        if (!TryGetHandTransform(_activeHand, out _))
+            return true;
+
+        return ShouldReleaseFromClap();
     }
 
-    public bool TryGetActiveHandTransform(out Transform hand)
+    void ResetClapTracking()
     {
-        return TryGetHandTransform(_activeHand, out hand);
+        _handsWereApart = false;
+    }
+
+    bool ShouldReleaseFromClap()
+    {
+        if (!enableClapRelease)
+            return false;
+
+        if (!TryGetHandTransform(HumanBodyBones.LeftHand, out Transform leftHand))
+            return false;
+
+        if (!TryGetHandTransform(HumanBodyBones.RightHand, out Transform rightHand))
+            return false;
+
+        float handSeparation = Vector3.Distance(leftHand.position, rightHand.position);
+
+        if (handSeparation >= clapResetDistance)
+            _handsWereApart = true;
+
+        if (_clapGraceTimer > 0f)
+            return false;
+
+        return _handsWereApart && handSeparation <= clapDistance;
     }
 
     float GetHandGrabDistance(HumanBodyBones handBone)
@@ -634,21 +664,8 @@ public class DreamscapeGrabbable : MonoBehaviour
 
     public void ForceRelease()
     {
-        ForceRelease(false);
-    }
-
-    // waist drop uses this so the player can grab the object again without pulling away first
-    public void ForceReleaseAllowingRegrab()
-    {
-        ForceRelease(true);
-    }
-
-    public void ForceRelease(bool allowImmediateRegrab)
-    {
         if (IsPlaced)
             return;
-
-        _allowImmediateRegrabOnRelease = allowImmediateRegrab;
 
         if (_isGrabbedLocally)
             RequestRelease();
@@ -736,15 +753,15 @@ public class DreamscapeGrabbable : MonoBehaviour
     static class LocalHandOccupancy
     {
         // local-only tracker so one object per hand on this client
-        static DreamscapeGrabbable _leftHandOccupant;
-        static DreamscapeGrabbable _rightHandOccupant;
+        static DreamscapeClapGrabbable _leftHandOccupant;
+        static DreamscapeClapGrabbable _rightHandOccupant;
 
         public static bool IsHandAvailable(HumanBodyBones hand)
         {
             return GetOccupant(hand) == null;
         }
 
-        public static bool TryRegister(HumanBodyBones hand, DreamscapeGrabbable grabbable)
+        public static bool TryRegister(HumanBodyBones hand, DreamscapeClapGrabbable grabbable)
         {
             if (grabbable == null || !IsHandAvailable(hand))
                 return false;
@@ -759,7 +776,7 @@ public class DreamscapeGrabbable : MonoBehaviour
             return true;
         }
 
-        public static void Unregister(HumanBodyBones hand, DreamscapeGrabbable grabbable)
+        public static void Unregister(HumanBodyBones hand, DreamscapeClapGrabbable grabbable)
         {
             if (hand == HumanBodyBones.LeftHand && _leftHandOccupant == grabbable)
                 _leftHandOccupant = null;
@@ -767,7 +784,7 @@ public class DreamscapeGrabbable : MonoBehaviour
                 _rightHandOccupant = null;
         }
 
-        static DreamscapeGrabbable GetOccupant(HumanBodyBones hand)
+        static DreamscapeClapGrabbable GetOccupant(HumanBodyBones hand)
         {
             if (hand == HumanBodyBones.LeftHand)
                 return _leftHandOccupant;

@@ -272,15 +272,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 560371734cce3ee4d9bf79e4fcf329e4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 104.89999
+      value: 85.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 560371734cce3ee4d9bf79e4fcf329e4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 8.499998
+      value: 6.9280257
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 560371734cce3ee4d9bf79e4fcf329e4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 104.7
+      value: 85.33699
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 560371734cce3ee4d9bf79e4fcf329e4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -321,6 +321,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 560371734cce3ee4d9bf79e4fcf329e4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 560371734cce3ee4d9bf79e4fcf329e4, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 560371734cce3ee4d9bf79e4fcf329e4, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -369,7 +373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &36613005
 Transform:
   m_ObjectHideFlags: 0
@@ -379,9 +383,9 @@ Transform:
   m_GameObject: {fileID: 36613004}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.054, y: 0.24, z: -0.824}
+  m_LocalScale: {x: 0.8151, y: 0.8151, z: 0.8151}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1050790525}
   - {fileID: 1038587813}
@@ -1422,6 +1426,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1021127943395724966, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: Outlines
       value: 
@@ -1788,6 +1796,10 @@ PrefabInstance:
     - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1021127943395724966, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: Outlines
@@ -2515,7 +2527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &687834227
 Transform:
   m_ObjectHideFlags: 0
@@ -2526,8 +2538,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0.30399954, y: 1.297, z: -4.5150003}
-  m_LocalScale: {x: 2.1, y: 2.1, z: 0}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.71162, y: 1.71162, z: 0}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 564527363}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -3303,6 +3315,10 @@ PrefabInstance:
     - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1021127943395724966, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: Outlines
@@ -6922,6 +6938,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1021127943395724966, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: Outlines
       value: 
@@ -7131,6 +7151,10 @@ PrefabInstance:
     - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1021127943395724966, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: Outlines
@@ -7558,6 +7582,10 @@ PrefabInstance:
     - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1021127943395724966, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: Outlines
@@ -8900,6 +8928,10 @@ PrefabInstance:
     - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1021127943395724966, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: Outlines
@@ -11375,6 +11407,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1021127943395724966, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: Outlines
       value: 
@@ -11626,6 +11662,10 @@ PrefabInstance:
     - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1021127943395724966, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: Outlines
@@ -12396,7 +12436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1564149399
 Transform:
   m_ObjectHideFlags: 0
@@ -12406,9 +12446,9 @@ Transform:
   m_GameObject: {fileID: 1564149398}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.054, y: 0.24, z: -0.824}
+  m_LocalScale: {x: 0.8151, y: 0.8151, z: 0.8151}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 348407623201099570}
   - {fileID: 4410308089343345756}
@@ -12802,6 +12842,10 @@ PrefabInstance:
     - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1021127943395724966, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: Outlines
@@ -13238,6 +13282,10 @@ PrefabInstance:
     - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1021127943395724966, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: Outlines
@@ -13965,6 +14013,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1021127943395724966, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: Outlines
       value: 
@@ -14683,6 +14735,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1021127943395724966, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: Outlines
       value: 
@@ -15164,6 +15220,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1021127943395724966, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: Outlines
       value: 
@@ -15580,6 +15640,10 @@ PrefabInstance:
     - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154751481333677992, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1021127943395724966, guid: f17c809e7dd7dd143a43b2b61bf1b8bc, type: 3}
       propertyPath: Outlines
@@ -17016,7 +17080,7 @@ Transform:
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: -0.47425088, y: 0.5218077, z: -4.523652}
   m_LocalScale: {x: 21.08818, y: 21.08818, z: 21.08818}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1564149399}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19087,8 +19151,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -2.079, y: 4.6857142, z: 0.702}
-  m_LocalScale: {x: 21.08818, y: 21.08818, z: 21.08818}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 17.187, y: 17.187, z: 17.187}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 370918952}
   - {fileID: 633396049}
@@ -19270,8 +19334,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 1.995, y: 4.8195434, z: 0.948}
-  m_LocalScale: {x: 21.08818, y: 21.08818, z: 21.08818}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 17.187, y: 17.187, z: 17.187}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1004601663}
   - {fileID: 1986003783}
@@ -24463,8 +24527,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -0.531, y: 4.707714, z: 2.15}
-  m_LocalScale: {x: 21.08818, y: 21.08818, z: 21.08818}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 17.187, y: 17.187, z: 17.187}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1680875654}
   - {fileID: 1770978247}
@@ -24579,8 +24643,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: -1.6615665, y: 4.7895427, z: 2.021}
-  m_LocalScale: {x: 21.08818, y: 21.08818, z: 21.08818}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 17.187, y: 17.187, z: 17.187}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1783362344}
   - {fileID: 546830159}
@@ -29205,10 +29269,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 1
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 370918952}
   rightAttachPoint: {fileID: 633396049}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -30721,10 +30782,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 1
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 1004601663}
   rightAttachPoint: {fileID: 1986003783}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -31668,7 +31726,7 @@ Transform:
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0.57170784, y: 2.079147, z: -4.5259724}
   m_LocalScale: {x: 21.08818, y: 21.08818, z: 21.08818}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1564149399}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -36348,8 +36406,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 1.375, y: 4.765755, z: 2.117}
-  m_LocalScale: {x: 21.08818, y: 21.08818, z: 21.08818}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 17.187, y: 17.187, z: 17.187}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 104240649}
   - {fileID: 1246842525}
@@ -36453,8 +36511,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 2.053, y: 4.744927, z: 1.874}
-  m_LocalScale: {x: 21.08818, y: 21.08818, z: 21.08818}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 17.187, y: 17.187, z: 17.187}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 470076451}
   - {fileID: 1424364136}
@@ -37273,10 +37331,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 1
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 1680875654}
   rightAttachPoint: {fileID: 1770978247}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -39001,8 +39056,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -2.121, y: 4.7387137, z: 1.519}
-  m_LocalScale: {x: 21.08818, y: 21.08818, z: 21.08818}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 17.187, y: 17.187, z: 17.187}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2011127192}
   - {fileID: 1080468288}
@@ -39197,10 +39252,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 1
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 104240649}
   rightAttachPoint: {fileID: 1246842525}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -40766,10 +40818,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 1
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 1783362344}
   rightAttachPoint: {fileID: 546830159}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -40999,8 +41048,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: -1}
   m_LocalPosition: {x: 1.085, y: 4.8179193, z: -1.695}
-  m_LocalScale: {x: 21.08818, y: 21.08818, z: 21.08818}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 17.187, y: 17.187, z: 17.187}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 305759247}
   - {fileID: 1240462972}
@@ -42105,10 +42154,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 1
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 470076451}
   rightAttachPoint: {fileID: 1424364136}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -43308,8 +43354,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -1.97, y: 4.668714, z: -0.298}
-  m_LocalScale: {x: 21.08818, y: 21.08818, z: 21.08818}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 17.187, y: 17.187, z: 17.187}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1397524557}
   - {fileID: 218854424}
@@ -43635,10 +43681,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 1
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 305759247}
   rightAttachPoint: {fileID: 1240462972}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -44155,8 +44198,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.611148, y: 4.792714, z: 2.109}
-  m_LocalScale: {x: 21.08818, y: 21.08818, z: 21.08818}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 17.187, y: 17.187, z: 17.187}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 989776565}
   - {fileID: 2188111}
@@ -44293,10 +44336,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 1
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 989776565}
   rightAttachPoint: {fileID: 2188111}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -44469,7 +44509,7 @@ Transform:
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 1.1008472, y: 1.5516059, z: -4.5266037}
   m_LocalScale: {x: 21.08818, y: 21.08818, z: 21.08818}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1564149399}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45992,7 +46032,7 @@ Transform:
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
   m_LocalPosition: {x: 0.03744006, y: 1.0352834, z: -4.524706}
   m_LocalScale: {x: 21.08818, y: 21.08818, z: 21.08818}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1564149399}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47680,10 +47720,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 1
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 1397524557}
   rightAttachPoint: {fileID: 218854424}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -48071,8 +48108,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 1.972, y: 4.726714, z: -1.353}
-  m_LocalScale: {x: 21.08818, y: 21.08818, z: 21.08818}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 17.187, y: 17.187, z: 17.187}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 147981667}
   - {fileID: 328181278}
@@ -48209,10 +48246,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 1
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 147981667}
   rightAttachPoint: {fileID: 328181278}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -48778,10 +48812,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 1
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 2011127192}
   rightAttachPoint: {fileID: 1080468288}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -48943,8 +48974,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 1.875, y: 4.751208, z: -0.229}
-  m_LocalScale: {x: 21.08818, y: 21.08818, z: 21.08818}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 17.187, y: 17.187, z: 17.187}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1105293054}
   - {fileID: 615536359}
@@ -49081,10 +49112,7 @@ MonoBehaviour:
   handPreference: 0
   grabRadius: 0.4
   grabDwellSeconds: 0.15
-  enableShakeRelease: 1
-  shakeSpeedThreshold: 1
-  shakeSampleWindow: 0.5
-  shakeGraceSeconds: 0.5
+  regrabBlockSeconds: 0.5
   leftAttachPoint: {fileID: 1105293054}
   rightAttachPoint: {fileID: 615536359}
   localAttachOffset: {x: 0, y: 0, z: 0}

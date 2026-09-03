@@ -2427,6 +2427,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 4734000624397562841}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!320 &330852510
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -2462,6 +2474,8 @@ PlayableDirector:
     value: {fileID: 644054643}
   - key: {fileID: -4570188301798221965, guid: e4b5e7765c225df4781eb9a4d66ea970, type: 2}
     value: {fileID: 503592702}
+  - key: {fileID: 7975546401721067781, guid: e4b5e7765c225df4781eb9a4d66ea970, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &337222805 stripped
@@ -2592,7 +2606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f3c1d64e7b42509c2a5e8f1b4d7c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverRadius: 1
+  hoverRadius: 5
   hoverMaterial: {fileID: 2100000, guid: 9555a072fc624ec46a36d5a5c20846a6, type: 2}
   placeable: {fileID: 337222808}
   grabbable: {fileID: 337222809}
@@ -2909,7 +2923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f3c1d64e7b42509c2a5e8f1b4d7c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverRadius: 1
+  hoverRadius: 5
   hoverMaterial: {fileID: 2100000, guid: a05b2072cb31e254d9be1b37d6343ddb, type: 2}
   placeable: {fileID: 405625453}
   grabbable: {fileID: 405625454}
@@ -3298,6 +3312,8 @@ PlayableDirector:
     value: {fileID: 2024339141}
   - key: {fileID: -1751461842020633875, guid: 2213404dfa6db0b4e8216b67978e516c, type: 2}
     value: {fileID: 4734000624397562841}
+  - key: {fileID: -1537233380050162243, guid: 2213404dfa6db0b4e8216b67978e516c, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &503592707
@@ -4398,7 +4414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f3c1d64e7b42509c2a5e8f1b4d7c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverRadius: 1
+  hoverRadius: 5
   hoverMaterial: {fileID: 2100000, guid: 14e6c4180bca47f4b8193175ecc74456, type: 2}
   placeable: {fileID: 845658712}
   grabbable: {fileID: 845658709}
@@ -5019,7 +5035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f3c1d64e7b42509c2a5e8f1b4d7c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverRadius: 1
+  hoverRadius: 5
   hoverMaterial: {fileID: 2100000, guid: 97c6a4aad04e8744998745e7b7e2b50f, type: 2}
   placeable: {fileID: 919204774}
   grabbable: {fileID: 919204775}
@@ -5809,7 +5825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f3c1d64e7b42509c2a5e8f1b4d7c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverRadius: 1
+  hoverRadius: 5
   hoverMaterial: {fileID: 2100000, guid: cf20fc1d5baf63846ad8a915cc49f732, type: 2}
   placeable: {fileID: 1274913965}
   grabbable: {fileID: 1274913966}
@@ -7655,7 +7671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f3c1d64e7b42509c2a5e8f1b4d7c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverRadius: 1
+  hoverRadius: 5
   hoverMaterial: {fileID: 2100000, guid: 88851d32ce148b44780c409ce83d0f41, type: 2}
   placeable: {fileID: 1993019456}
   grabbable: {fileID: 1993019457}
@@ -9450,7 +9466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f3c1d64e7b42509c2a5e8f1b4d7c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverRadius: 1
+  hoverRadius: 5
   hoverMaterial: {fileID: 2100000, guid: ddc2861037ade3d48834f971d6080cc0, type: 2}
   placeable: {fileID: 6051092647494404787}
   grabbable: {fileID: 6051092647494404788}

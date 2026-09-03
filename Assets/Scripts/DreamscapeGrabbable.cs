@@ -39,15 +39,8 @@ public class DreamscapeGrabbable : MonoBehaviour
     // hand must stay within this distance for grabDwellSeconds before grab fires
     [SerializeField] float grabRadius = 0.4f;
     [SerializeField] float grabDwellSeconds = 0.15f;
-
-    [Header("Shake release")]
-    // optional drop-by-shaking while held 
-    [SerializeField] bool enableShakeRelease = true;
-    [SerializeField] float shakeSpeedThreshold = 8f;
-    // length of each shake measurement window
-    [SerializeField] float shakeSampleWindow = 0.5f;
-    // blocks shake-release briefly after grab
-    [SerializeField] float shakeGraceSeconds = 0.5f;
+    // after drop, ignore proximity grab for this long unless ForceReleaseAllowingRegrab
+    [SerializeField] float regrabBlockSeconds = 0.5f;
 
     [Header("Attach")]
     [SerializeField] Transform leftAttachPoint;
@@ -74,11 +67,9 @@ public class DreamscapeGrabbable : MonoBehaviour
     bool _placementLocked;
     HumanBodyBones _activeHand = HumanBodyBones.LastBone;
     HumanBodyBones _pendingGrabHand = HumanBodyBones.LastBone;
-    Vector3 _previousHandPosition;
-    bool _hasPreviousHandPosition;
-    float _shakePeakSpeed;
-    float _shakeSampleTimer;
-    float _shakeGraceTimer;
+    float _regrabBlockTimer;
+    bool _mustLeaveBeforeRegrab;
+    bool _allowImmediateRegrabOnRelease;
     Quaternion _rotationWhileHeld;
     bool _syncedRotationWhileHeld;
     Vector3 _gripOffsetInObjectSpace;
@@ -91,6 +82,7 @@ public class DreamscapeGrabbable : MonoBehaviour
     static readonly HashSet<string> RegisteredTransformIds = new HashSet<string>();
 
     public bool IsGrabbed => _isGrabbedLocally;
+    public HumanBodyBones ActiveHand => _activeHand;
     public bool IsPlacementLocked => _placementLocked;
     public NetworkSyncedInteger StateSync => _stateSync;
     public int StateValue => _stateSync != null ? _stateSync.Value : PlaceableObjectNetworkState.Free;
@@ -136,8 +128,8 @@ public class DreamscapeGrabbable : MonoBehaviour
 
     void Update()
     {
-        if (_isGrabbedLocally && _shakeGraceTimer > 0f)
-            _shakeGraceTimer -= Time.deltaTime;
+        if (!_isGrabbedLocally && _regrabBlockTimer > 0f)
+            _regrabBlockTimer -= Time.deltaTime;
 
         // all proximity + dwell logic runs on the local client only
         if (!CanRunLocalGrabLogic())
@@ -158,6 +150,24 @@ public class DreamscapeGrabbable : MonoBehaviour
         }
 
         if (!TryGetClosestAvailableHand(out _, out float distance))
+        {
+            _dwellTimer = 0f;
+            _mustLeaveBeforeRegrab = false;
+            return;
+        }
+
+        if (_mustLeaveBeforeRegrab)
+        {
+            if (distance > grabRadius)
+                _mustLeaveBeforeRegrab = false;
+            else
+            {
+                _dwellTimer = 0f;
+                return;
+            }
+        }
+
+        if (_regrabBlockTimer > 0f)
         {
             _dwellTimer = 0f;
             return;
@@ -354,8 +364,9 @@ public class DreamscapeGrabbable : MonoBehaviour
         _syncedTransform.IsSource = true;
         _syncedRotationWhileHeld = _syncedTransform.SyncRotation;
         _syncedTransform.SyncRotation = matchHandRotation;
-        ResetShakeTracking();
-        _shakeGraceTimer = shakeGraceSeconds;
+        _regrabBlockTimer = 0f;
+        _mustLeaveBeforeRegrab = false;
+        _allowImmediateRegrabOnRelease = false;
 
         onGrabbed.Invoke();
         UpdateHeldPose();
@@ -373,8 +384,19 @@ public class DreamscapeGrabbable : MonoBehaviour
         _pendingInitialGrabSnap = false;
         _syncedTransform.IsSource = false;
         _syncedTransform.SyncRotation = _syncedRotationWhileHeld;
-        ResetShakeTracking();
 
+        if (_allowImmediateRegrabOnRelease)
+        {
+            _regrabBlockTimer = 0f;
+            _mustLeaveBeforeRegrab = false;
+        }
+        else
+        {
+            _regrabBlockTimer = regrabBlockSeconds;
+            _mustLeaveBeforeRegrab = true;
+        }
+
+        _allowImmediateRegrabOnRelease = false;
         onReleased.Invoke();
     }
 
@@ -493,48 +515,12 @@ public class DreamscapeGrabbable : MonoBehaviour
 
     bool ShouldRelease()
     {
-        if (!TryGetHandTransform(_activeHand, out _))
-            return true;
-
-        return ShouldReleaseFromShake();
+        return !TryGetHandTransform(_activeHand, out _);
     }
 
-    void ResetShakeTracking()
+    public bool TryGetActiveHandTransform(out Transform hand)
     {
-        _hasPreviousHandPosition = false;
-        _shakePeakSpeed = 0f;
-        _shakeSampleTimer = 0f;
-    }
-
-    bool ShouldReleaseFromShake()
-    {
-        if (!enableShakeRelease || _shakeGraceTimer > 0f)
-            return false;
-
-        if (!TryGetHandTransform(_activeHand, out Transform hand))
-            return false;
-
-        if (_hasPreviousHandPosition && Time.deltaTime > 0f)
-        {
-            float speed = (hand.position - _previousHandPosition).magnitude / Time.deltaTime;
-            if (speed > _shakePeakSpeed)
-                _shakePeakSpeed = speed;
-
-            _shakeSampleTimer += Time.deltaTime;
-            // peak hand speed inside the sample window must beat the threshold
-            if (_shakeSampleTimer >= shakeSampleWindow)
-            {
-                bool release = _shakePeakSpeed >= shakeSpeedThreshold;
-                _shakePeakSpeed = 0f;
-                _shakeSampleTimer = 0f;
-                _previousHandPosition = hand.position;
-                return release;
-            }
-        }
-
-        _previousHandPosition = hand.position;
-        _hasPreviousHandPosition = true;
-        return false;
+        return TryGetHandTransform(_activeHand, out hand);
     }
 
     float GetHandGrabDistance(HumanBodyBones handBone)
@@ -648,8 +634,21 @@ public class DreamscapeGrabbable : MonoBehaviour
 
     public void ForceRelease()
     {
+        ForceRelease(false);
+    }
+
+    // waist drop uses this so the player can grab the object again without pulling away first
+    public void ForceReleaseAllowingRegrab()
+    {
+        ForceRelease(true);
+    }
+
+    public void ForceRelease(bool allowImmediateRegrab)
+    {
         if (IsPlaced)
             return;
+
+        _allowImmediateRegrabOnRelease = allowImmediateRegrab;
 
         if (_isGrabbedLocally)
             RequestRelease();

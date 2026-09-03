@@ -19,6 +19,7 @@ public class djembe_sound : MonoBehaviour
 
     ClientToServerTrigger _clientTrigger;
     NetworkSound _networkSound;
+    Collider _drumCollider;
 
     float _lastHitTime = float.NegativeInfinity;
     bool _hasPreviousLeftHand;
@@ -32,6 +33,7 @@ public class djembe_sound : MonoBehaviour
     {
         _clientTrigger = GetComponent<ClientToServerTrigger>();
         _networkSound = GetComponent<NetworkSound>();
+        _drumCollider = GetComponent<Collider>();
 
         Rigidbody body = GetComponent<Rigidbody>();
         if (body != null)
@@ -118,16 +120,11 @@ public class djembe_sound : MonoBehaviour
         if (localAvatar == null || avatar != localAvatar)
             return false;
 
-        if (!TryGetLocalHandTransforms(out Transform leftHand, out Transform rightHand))
+        if (_drumCollider == null || !TryGetLocalHandTransforms(out Transform leftHand, out Transform rightHand))
             return false;
 
-        Transform colliderTransform = other.transform;
-        float leftDistance = leftHand != null
-            ? Vector3.Distance(colliderTransform.position, leftHand.position)
-            : float.MaxValue;
-        float rightDistance = rightHand != null
-            ? Vector3.Distance(colliderTransform.position, rightHand.position)
-            : float.MaxValue;
+        float leftDistance = GetHandDistanceToDrum(leftHand);
+        float rightDistance = GetHandDistanceToDrum(rightHand);
 
         if (Mathf.Min(leftDistance, rightDistance) > handMatchRadius)
             return false;
@@ -141,6 +138,14 @@ public class djembe_sound : MonoBehaviour
             hitSpeed = GetColliderSpeed(other);
 
         return true;
+    }
+
+    float GetHandDistanceToDrum(Transform hand)
+    {
+        if (hand == null)
+            return float.MaxValue;
+
+        return Vector3.Distance(_drumCollider.ClosestPoint(hand.position), hand.position);
     }
 
     float GetTrackedHandSpeed(Transform hand, bool hasPreviousPosition, Vector3 previousPosition)

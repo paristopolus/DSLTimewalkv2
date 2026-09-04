@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: PackageVersionLogger
   m_EditorClassIdentifier: 
   packageVersions:
-  - com.artanim.common@file:D:\UnityProjects\DSLTimewalk\Packages\dependencies\com.artanim.common-9.2.3.tgz
+  - com.artanim.common@file:C:\Users\pflex\Documents\_git\DSLTimewalkv2\Packages\dependencies\com.artanim.common-9.2.3.tgz
     version 9.2.3
-  - com.dreamscape.coresdk@file:D:\UnityProjects\DSLTimewalk\Packages\dependencies\com.dreamscape.coresdk-9.2.3.tgz
+  - com.dreamscape.coresdk@file:C:\Users\pflex\Documents\_git\DSLTimewalkv2\Packages\dependencies\com.dreamscape.coresdk-9.2.3.tgz
     version 9.2.3
-  - com.dreamscape.haptics@file:D:\UnityProjects\DSLTimewalk\Packages\dependencies\com.dreamscape.haptics-9.2.3.tgz
+  - com.dreamscape.haptics@file:C:\Users\pflex\Documents\_git\DSLTimewalkv2\Packages\dependencies\com.dreamscape.haptics-9.2.3.tgz
     version 9.2.3
-  - com.dreamscape.voip@file:D:\UnityProjects\DSLTimewalk\Packages\dependencies\com.dreamscape.voip-9.2.3.tgz
+  - com.dreamscape.voip@file:C:\Users\pflex\Documents\_git\DSLTimewalkv2\Packages\dependencies\com.dreamscape.voip-9.2.3.tgz
     version 9.2.3
   - com.meta.xr.sdk.audio@60.0.0 version 60.0.0
   - com.unity.2d.sprite@1.0.0 version 1.0.0
@@ -34,6 +34,7 @@ MonoBehaviour:
   - com.unity.ide.visualstudio@2.0.22 version 2.0.22
   - com.unity.ide.vscode@1.2.5 version 1.2.5
   - com.unity.purchasing@4.11.0 version 4.11.0
+  - com.unity.recorder@4.0.3 version 4.0.3
   - com.unity.render-pipelines.universal@14.0.11 version 14.0.11
   - com.unity.test-framework@1.1.33 version 1.1.33
   - com.unity.textmeshpro@3.0.7 version 3.0.7

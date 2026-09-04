@@ -15,6 +15,7 @@
 	<Avatars>
 		<Avatar Name="Jack" AvatarResource="Avatars/PFB_Jack" RigName="Mixamo" />
 		<Avatar Name="Lisa" AvatarResource="Avatars/PFB_Lisa" RigName="Character Creator AR" />
+		<Avatar Name="Avatar_1_LODGroup_LODGroup" AvatarResource="Avatars/Avatar_Lady_1/PFB_Avatar" RigName="Character Creator AR" />
 	</Avatars>
 	<ExperienceProperties />
 	<TrackedProps />

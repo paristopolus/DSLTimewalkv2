@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Experience Settings
   m_EditorClassIdentifier: 
   MenuTemplate: {fileID: 0}
-  DefaultCameraTemplate: {fileID: 0}
+  DefaultCameraTemplate: {fileID: 8209563768188512703, guid: bb88c6852d2bbad43aecaf030cab7126, type: 3}
   DefaultObserverCameraTemplate: {fileID: 0}
   DefaultServerCameraTemplate: {fileID: 0}
   DefaultUserMessageDisplayer: {fileID: 0}
@@ -32,7 +32,7 @@ MonoBehaviour:
   TextProviderTypeName: 
   TextAssetPath: 
   TextDelimiter: ','
-  ObserverSubtitleDisplayer: {fileID: 1599689829469852, guid: 1e6c57c34e4d1464b9a6d5f086e0c32a, type: 3}
+  ObserverSubtitleDisplayer: {fileID: 1599689829469852, guid: 8892d5ea3ed70e44cb9db8d59bf8b8c1, type: 3}
   VRSubtitleDisplayer: {fileID: 1599689829469852, guid: b648cb2a578f8a3409d5b190fcc4af4b, type: 3}
   EnableSessionIntro: 1
   WakeUpAndDreamClip: {fileID: 0}

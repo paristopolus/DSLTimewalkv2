@@ -81,9 +81,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FloorRumbleTest.unity
     guid: 14867ed2bc2929d4693d909f07813891
-  - enabled: 1
-    path: Assets/Scenes/AnimationDemo.unity
-    guid: 22c90247473639c42af8d1bc81b9a0fd
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: b67475784df59614d9e468b9708809c3, type: 2}
     com.unity.localization.addressable-group-rules: {fileID: 11400000, guid: 775f00c7cd5df1d4a8d0054fb83fca8d, type: 2}

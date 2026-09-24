@@ -21,8 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: DissolveMrEllisShaderHead
-  m_Shader: {fileID: -6465566751694194690, guid: c339cc2ec0b81394292a0c2ccdb86cce,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: c339cc2ec0b81394292a0c2ccdb86cce, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
@@ -31,7 +30,7 @@ Material:
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2450
   stringTagMap:
     RenderType: TransparentCutout
   disabledShaderPasses: []
@@ -73,6 +72,9 @@ Material:
     - _AlphaToMask: 1
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
+    - _BurstAmplitude: 0
+    - _BurstEffect: 0
+    - _BurstOffset: 1
     - _CastShadows: 1
     - _Cull: 2
     - _DissolveAmount: 0

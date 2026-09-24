@@ -59,7 +59,6 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 3453119123259129858
-      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
-        asm: Unity.Localization}
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
         m_CustomEpoch: 1722001772466

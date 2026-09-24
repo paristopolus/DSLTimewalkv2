@@ -1,3 +1,4 @@
+using RvSdk.Component;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -5,13 +6,16 @@ public class ShakeVolumeController : MonoBehaviour
 {
     [SerializeField] DreamscapeGrabbable grabbable;
     [SerializeField] AudioSource audioSource;
-
-    [SerializeField] float sensitivity = 0.1f;
+    [SerializeField] float sensitivity = 1f;
     [SerializeField] float maxVolume = 1f;
-    [SerializeField] float shakeThreshold = 2f;
+    [SerializeField] float shakeThreshold = 0.1f;
+    [SerializeField] float soundCooldown = 3f;
 
+    ClientToServerTrigger _clientToServerTrigger;
     Vector3 _lastPosition;
     bool _hasLastPosition;
+    float _lastSoundTime;
+    float _currentVolume;
 
     void Awake()
     {
@@ -21,23 +25,31 @@ public class ShakeVolumeController : MonoBehaviour
         if (grabbable == null)
             grabbable = GetComponent<DreamscapeGrabbable>();
 
+        _clientToServerTrigger = GetComponent<ClientToServerTrigger>();
+
         if (audioSource != null)
+        {
+            audioSource.clip = null;
             audioSource.playOnAwake = false;
+            audioSource.loop = false;
+        }
     }
 
     void OnEnable()
     {
         _hasLastPosition = false;
+        _currentVolume = 0f;
+        _lastSoundTime = -soundCooldown;
     }
 
     void Update()
     {
-        if (audioSource == null || audioSource.clip == null)
+        if (audioSource == null)
             return;
 
         if (grabbable != null && (grabbable.IsPlacementLocked || grabbable.IsPlaced))
         {
-            StopShakeAudio();
+            _currentVolume = 0f;
             _hasLastPosition = false;
             return;
         }
@@ -57,38 +69,25 @@ public class ShakeVolumeController : MonoBehaviour
         if (shakeIntensity < shakeThreshold)
             shakeIntensity = 0f;
 
-        ApplyVolume(Mathf.Clamp(shakeIntensity * sensitivity, 0f, maxVolume));
-    }
+        _currentVolume = Mathf.Clamp(shakeIntensity * sensitivity, 0f, maxVolume);
 
-    void OnDisable()
-    {
-        StopShakeAudio();
-        _hasLastPosition = false;
-    }
-
-    void ApplyVolume(float volume)
-    {
-        audioSource.volume = volume;
-
-        if (volume > 0f)
-        {
-            if (!audioSource.isPlaying)
-                audioSource.Play();
-            return;
-        }
-
-        StopShakeAudio();
-    }
-
-    void StopShakeAudio()
-    {
-        if (audioSource == null)
+        if (shakeIntensity < shakeThreshold)
             return;
 
-        if (audioSource.isPlaying)
-            audioSource.Stop();
+        if (_clientToServerTrigger == null || grabbable == null || !grabbable.IsHeldByLocalPlayer)
+            return;
 
-        audioSource.volume = 0f;
+        if (Time.time - _lastSoundTime <= soundCooldown)
+            return;
+
+        _lastSoundTime = Time.time;
+        _clientToServerTrigger.Trigger();
+    }
+
+    void LateUpdate()
+    {
+        if (audioSource != null)
+            audioSource.volume = _currentVolume;
     }
 
 #if UNITY_EDITOR

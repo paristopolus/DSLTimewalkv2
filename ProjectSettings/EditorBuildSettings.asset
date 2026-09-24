@@ -14,34 +14,34 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TemplateTest.unity
     guid: 3565ad8f285406844a6eef4c7b7688b2
-  - enabled: 1
+  - enabled: 0
     path: Assets/Samples/RVSDK - Haptics/9.2.3/Haptics Sample/Haptics Sample Scene.unity
     guid: d388d85288dcad6489f96d357ebcff6f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Samples/RVSDK - Artanim Common/9.2.3/Avatar Generic Trigger Sample/Avatar
       Generic Trigger Sample Scene.unity
     guid: a0edf2604fc9bac4c806ef6f3d8fae26
-  - enabled: 1
+  - enabled: 0
     path: Assets/Samples/RVSDK - Artanim Common/9.2.3/Custom Messages Sample/Custom
       Messaging Sample Scene.unity
     guid: c6d17d27aeaae6643bc0ce75e789a526
-  - enabled: 1
+  - enabled: 0
     path: Assets/Samples/RVSDK - Artanim Common/9.2.3/Experience Trigger Sample/Experience
       Trigger Sample Scene.unity
     guid: 165fc1555cc84cb449f353e0709ba0f8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Samples/RVSDK - Artanim Common/9.2.3/Localization Sample/Localization
       Sample Scene.unity
     guid: e3f48cfcd63d53242a24d8f6d79ccb3e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Samples/RVSDK - Artanim Common/9.2.3/Sync Transform Sample/Sync
       Transform Sample Scene.unity
     guid: 1578630f5e5a15745b868355940ac867
-  - enabled: 1
+  - enabled: 0
     path: Assets/Samples/RVSDK - Artanim Common/9.2.3/Synced Timeline Sample/Synced
       Timeline Sample Scene.unity
     guid: 62e9be94f395a924788f315618bd97f8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Samples/RVSDK - Artanim Common/9.2.3/Tracked Props Sample/Tracked
       Props Sample Scene.unity
     guid: b5b417a26e9246d428b489c6798e68ef
@@ -78,7 +78,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene9_CreditsBlackBox.unity
     guid: be6b2eb0e7b33104983d5172e6d7c166
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/FloorRumbleTest.unity
     guid: 14867ed2bc2929d4693d909f07813891
   m_configObjects:

@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: Experience Settings
   m_EditorClassIdentifier: 
   MenuTemplate: {fileID: 0}
-  DefaultCameraTemplate: {fileID: 0}
+  DefaultCameraTemplate: {fileID: 8209563768188512703, guid: bb88c6852d2bbad43aecaf030cab7126, type: 3}
   DefaultObserverCameraTemplate: {fileID: 0}
   DefaultServerCameraTemplate: {fileID: 0}
   DefaultUserMessageDisplayer: {fileID: 0}
   ExperienceSetupTemplate: {fileID: 0}
   ConstructSceneName: Construct
   ReadyForSessionMode: 0
-  DefaultChairTemplate: {fileID: 0}
+  DefaultChairTemplate: {fileID: 114386471277789834, guid: d761899fc65500341ad0235954c3d736, type: 3}
   DisableStandalonePickupables: 0
   StandaloneAvatarTemplate: {fileID: 0}
   DefaultSceneLoadingType: 1
@@ -32,8 +32,8 @@ MonoBehaviour:
   TextProviderTypeName: 
   TextAssetPath: 
   TextDelimiter: ','
-  ObserverSubtitleDisplayer: {fileID: 0}
-  VRSubtitleDisplayer: {fileID: 0}
+  ObserverSubtitleDisplayer: {fileID: 1599689829469852, guid: 8892d5ea3ed70e44cb9db8d59bf8b8c1, type: 3}
+  VRSubtitleDisplayer: {fileID: 1599689829469852, guid: b648cb2a578f8a3409d5b190fcc4af4b, type: 3}
   EnableSessionIntro: 1
   WakeUpAndDreamClip: {fileID: 0}
   WelcomeToDreamscapeClip: {fileID: 0}

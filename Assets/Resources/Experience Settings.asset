@@ -21,7 +21,7 @@ MonoBehaviour:
   ConstructSceneName: Construct
   ReadyForSessionMode: 0
   DefaultChairTemplate: {fileID: 114386471277789834, guid: d761899fc65500341ad0235954c3d736, type: 3}
-  DisableStandalonePickupables: 0
+  DisableStandalonePickupables: 1
   StandaloneAvatarTemplate: {fileID: 0}
   DefaultSceneLoadingType: 1
   SceneSyncTimeout: 30

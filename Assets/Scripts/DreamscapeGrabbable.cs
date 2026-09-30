@@ -45,7 +45,9 @@ public class DreamscapeGrabbable : MonoBehaviour
     [Header("Attach")]
     [SerializeField] Transform leftAttachPoint;
     [SerializeField] Transform rightAttachPoint;
+    [Tooltip("Additional offset in the avatar hand anchor's axes. Use zero to align directly to the anchor.")]
     [SerializeField] Vector3 localAttachOffset = Vector3.zero;
+    [Tooltip("Additional rotation relative to the avatar hand anchor. Use zero to match its orientation.")]
     [SerializeField] Vector3 localAttachEuler;
     [SerializeField] bool matchHandRotation;
 
@@ -80,6 +82,17 @@ public class DreamscapeGrabbable : MonoBehaviour
     bool _transformRegistered;
 
     static readonly HashSet<string> RegisteredTransformIds = new HashSet<string>();
+
+    struct HandAnchorCache
+    {
+        public Animator animator;
+        public Avatar avatar;
+        public Transform bone;
+        public Transform anchor;
+    }
+
+    HandAnchorCache _leftHandAnchor;
+    HandAnchorCache _rightHandAnchor;
 
     public bool IsGrabbed => _isGrabbedLocally;
     public HumanBodyBones ActiveHand => _activeHand;
@@ -614,13 +627,54 @@ public class DreamscapeGrabbable : MonoBehaviour
 
     Transform GetHandTransform(HumanBodyBones handBone)
     {
-        // dreamscape avatar hand bones
+        // Resolve named grip anchors on the current avatar, independent of rig bone names.
         RuntimePlayer localPlayer = GameController.Instance?.CurrentPlayer;
         Animator animator = localPlayer?.AvatarController?.AvatarAnimator;
-        if (animator == null)
+        if (animator == null || animator.avatar == null || !animator.avatar.isValid || !animator.isHuman
+            || (handBone != HumanBodyBones.LeftHand && handBone != HumanBodyBones.RightHand))
             return null;
 
-        return animator.GetBoneTransform(handBone);
+        Transform bone = animator.GetBoneTransform(handBone);
+        if (bone == null)
+            return null;
+
+        bool isLeft = handBone == HumanBodyBones.LeftHand;
+        ref HandAnchorCache cache = ref (isLeft ? ref _leftHandAnchor : ref _rightHandAnchor);
+        if (cache.animator != animator || cache.avatar != animator.avatar || cache.bone != bone
+            || (cache.anchor == null && !ReferenceEquals(cache.anchor, null)))
+        {
+            string anchorName = isLeft ? "LeftHandAnchor" : "RightHandAnchor";
+            Transform anchor = FindHandAnchor(bone, anchorName);
+            if (anchor == null)
+                anchor = FindHandAnchor(animator.transform, anchorName);
+
+            cache = new HandAnchorCache
+            {
+                animator = animator,
+                avatar = animator.avatar,
+                bone = bone,
+                anchor = anchor
+            };
+        }
+
+        // Legacy wrist fallback disabled: grabbing requires a named hand anchor.
+        // return cache.anchor != null ? cache.anchor : bone;
+        return cache.anchor;
+    }
+
+    static Transform FindHandAnchor(Transform root, string anchorName)
+    {
+        if (root.name.Equals(anchorName, StringComparison.Ordinal))
+            return root;
+
+        for (int i = 0; i < root.childCount; i++)
+        {
+            Transform anchor = FindHandAnchor(root.GetChild(i), anchorName);
+            if (anchor != null)
+                return anchor;
+        }
+
+        return null;
     }
 
     bool IsLocalPlayerHash(int holderHash)

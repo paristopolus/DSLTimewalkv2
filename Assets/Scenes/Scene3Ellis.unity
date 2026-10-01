@@ -5646,7 +5646,10 @@ PrefabInstance:
     - {fileID: 250081757767724936, guid: 0d26c911d597b654daa6a3292a95668d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8400361476584773907, guid: 0d26c911d597b654daa6a3292a95668d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1362823105}
   m_SourcePrefab: {fileID: 100100000, guid: 0d26c911d597b654daa6a3292a95668d, type: 3}
 --- !u!1 &1362823101 stripped
 GameObject:
@@ -5658,11 +5661,38 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 2972349613207165395, guid: 0d26c911d597b654daa6a3292a95668d, type: 3}
   m_PrefabInstance: {fileID: 1362823100}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1362823103 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3584900779753966110, guid: 0d26c911d597b654daa6a3292a95668d, type: 3}
+  m_PrefabInstance: {fileID: 1362823100}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &1362823104 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 7063365358204397759, guid: 0d26c911d597b654daa6a3292a95668d, type: 3}
   m_PrefabInstance: {fileID: 1362823100}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1362823105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362823101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RigLayers:
+  - m_Rig: {fileID: 1362823103}
+    m_Active: 1
+  m_Effectors: []
 --- !u!114 &1362823107 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8506864537284715999, guid: 0d26c911d597b654daa6a3292a95668d, type: 3}
@@ -6497,12 +6527,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 540240da3b15d604e8d2d4b9f9234c8f, type: 2}
     - target: {fileID: 751092594541882687, guid: 6ead335004485424d9405a58065526cf, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'CC_Base_R_Foot'\n\tTransform 'CC_Base_R_Calf'\n\tTransform
-        'CC_Base_L_Thumb1'\n\tTransform 'CC_Base_L_Clavicle'\n\tTransform 'CC_Base_R_Clavicle'\n\tTransform
-        'CC_Base_L_Mid3'\n\tTransform 'CC_Base_NeckTwist01'\n\tTransform 'CC_Base_R_Index2'\n\tTransform
-        'CC_Base_L_Index2'\n\tTransform 'CC_Base_BoneRoot'\n\tand more ..."
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 814282003652667477, guid: 6ead335004485424d9405a58065526cf, type: 3}
       propertyPath: m_Layer
@@ -8662,6 +8687,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6325189970840907263, guid: 6ead335004485424d9405a58065526cf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1748477205}
+    - targetCorrespondingSourceObject: {fileID: 6325189970840907263, guid: 6ead335004485424d9405a58065526cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6325189971512805615}
   m_SourcePrefab: {fileID: 100100000, guid: 6ead335004485424d9405a58065526cf, type: 3}
 --- !u!1 &1748477203 stripped
 GameObject:
@@ -16160,6 +16188,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6668782563913742149, guid: 6ead335004485424d9405a58065526cf, type: 3}
   m_PrefabInstance: {fileID: 1748477202}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6325189971512805615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6325189971512805613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RigLayers:
+  - m_Rig: {fileID: 871673182}
+    m_Active: 1
+  m_Effectors: []
 --- !u!33 &6334052251746202933
 MeshFilter:
   m_ObjectHideFlags: 0

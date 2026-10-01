@@ -155,8 +155,9 @@ public class DreamscapeGrabbable : MonoBehaviour
             return;
         }
 
-        // someone else is holding it on the network
-        if (HolderHash != HolderNone)
+        // Wait for local attachment if ownership has already been assigned to us.
+        // Objects held by another player can be taken with an available hand.
+        if (IsLocalPlayerHash(HolderHash))
         {
             _dwellTimer = 0f;
             return;
@@ -223,15 +224,18 @@ public class DreamscapeGrabbable : MonoBehaviour
         if (GameController.Instance == null || GameController.Instance.CurrentPlayer == null)
             return false;
 
-        if (HolderHash != HolderNone && !IsLocalPlayerHash(HolderHash))
-            return false;
-
         return true;
     }
 
     void RequestGrab()
     {
-        if (!PlaceableObjectNetworkState.IsFree(StateValue))
+        if (_placementLocked || IsPlaced || IsLocalPlayerHash(HolderHash))
+            return;
+
+        // Recheck the requesting hand before sending a pickup or takeover.
+        if (!IsHandAllowed(_pendingGrabHand)
+            || !LocalHandOccupancy.IsHandAvailable(_pendingGrabHand)
+            || GetHandGrabDistance(_pendingGrabHand) > grabRadius)
             return;
 
         _dwellTimer = 0f;
@@ -261,9 +265,11 @@ public class DreamscapeGrabbable : MonoBehaviour
 
     void TryAssignHolder(AvatarController avatar)
     {
-        if (!PlaceableObjectNetworkState.IsFree(_stateSync.Value))
+        if (_placementLocked || IsPlaced)
             return;
 
+        // Reassign directly, so the old holder detaches and the new holder attaches
+        // through OnStateChanged without an intermediate dropped state.
         // player id hash becomes the held state until release or placement
         _stateSync.Value = avatar.PlayerId.GetHashCode();
     }

@@ -13973,12 +13973,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: f6369d9fb1c342a4b9c0ea4c88c44686, type: 2}
     - target: {fileID: 4657197292376834606, guid: 0d806b2368455ed45a7fcc76f7496385, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'CC_Base_R_Foot'\n\tTransform 'CC_Base_R_Calf'\n\tTransform
-        'CC_Base_L_Thumb1'\n\tTransform 'CC_Base_L_Clavicle'\n\tTransform 'CC_Base_R_Clavicle'\n\tTransform
-        'CC_Base_L_Mid3'\n\tTransform 'CC_Base_NeckTwist01'\n\tTransform 'CC_Base_R_Index2'\n\tTransform
-        'CC_Base_L_Index2'\n\tTransform 'CC_Base_BoneRoot'\n\tand more ..."
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5081024448013750697, guid: 0d806b2368455ed45a7fcc76f7496385, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14820,6 +14815,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2092568793871401710, guid: 0d806b2368455ed45a7fcc76f7496385, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1711570011}
+    - targetCorrespondingSourceObject: {fileID: 2092568793871401710, guid: 0d806b2368455ed45a7fcc76f7496385, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1711570014}
   m_SourcePrefab: {fileID: 100100000, guid: 0d806b2368455ed45a7fcc76f7496385, type: 3}
 --- !u!1 &1711570009 stripped
 GameObject:
@@ -14932,6 +14930,33 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7130744907698997513, guid: 0d806b2368455ed45a7fcc76f7496385, type: 3}
   m_PrefabInstance: {fileID: 1711570008}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1711570013 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4119726263926544128, guid: 0d806b2368455ed45a7fcc76f7496385, type: 3}
+  m_PrefabInstance: {fileID: 1711570008}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1711570014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711570009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fff0960ef4ea6e04eac66b4a7fd2189d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RigLayers:
+  - m_Rig: {fileID: 1711570013}
+    m_Active: 1
+  m_Effectors: []
 --- !u!1 &1732679391
 GameObject:
   m_ObjectHideFlags: 0

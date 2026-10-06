@@ -7634,10 +7634,10 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1447391688}
-          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_MethodName: SetActive
-          m_Mode: 6
+        - m_Target: {fileID: 1447391689}
+          m_TargetAssemblyTypeName: RvSdk.Component.NetworkSound, com.artanim.common
+          m_MethodName: PlayOnce
+          m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11644,7 +11644,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1447391689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11661,10 +11661,10 @@ MonoBehaviour:
   MuteOnServer: 1
   AudioClips:
   - {fileID: 8300000, guid: 9bf307bb425882747aa69360a176b666, type: 3}
-  PlayOnAwake: 1
+  PlayOnAwake: 0
   AutoPlayIndex: 0
   AutoPlayLoop: 1
-  DefaultFadeTime: 2
+  DefaultFadeTime: 1
 --- !u!82 &1447391690
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11788,7 +11788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65b8dbfefdd72a84ebe3cc23cd1ae3e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 1.75
+  fadeDuration: 1
   fadeCurve:
     serializedVersion: 2
     m_Curve:
@@ -11802,8 +11802,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.7
-      value: 0.92
+      time: 0.16588134
+      value: 0.5567569
       inSlope: 0
       outSlope: 0
       tangentMode: 0

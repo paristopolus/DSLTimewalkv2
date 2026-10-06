@@ -83,7 +83,7 @@ Material:
     - _Cull: 2
     - _Dissolve: 1
     - _DistanceFromcamera: 0
-    - _Distance_To_Camera: 1
+    - _Distance_To_Camera: 1.5
     - _DistortionScale: 5
     - _DistortionStrength: 1
     - _DistortionStrnegth: 0.1

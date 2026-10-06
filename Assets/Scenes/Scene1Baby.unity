@@ -3350,6 +3350,7 @@ MonoBehaviour:
   - {fileID: 1417603398}
   - {fileID: 975424363}
   moveSceneScript: {fileID: 2024339136}
+  completeGame: 0
 --- !u!320 &503592705
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -11009,6 +11010,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4461392086705555314, guid: 93d3273fd360ea042b32cb53cf0537b8, type: 3}
+      propertyPath: OnTriggerValidated.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461392086705555314, guid: 93d3273fd360ea042b32cb53cf0537b8, type: 3}
       propertyPath: OnTriggerValidated.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 906688852}
@@ -11017,7 +11022,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2024339136}
     - target: {fileID: 4461392086705555314, guid: 93d3273fd360ea042b32cb53cf0537b8, type: 3}
+      propertyPath: OnTriggerValidated.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 2024339136}
+    - target: {fileID: 4461392086705555314, guid: 93d3273fd360ea042b32cb53cf0537b8, type: 3}
       propertyPath: OnTriggerValidated.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461392086705555314, guid: 93d3273fd360ea042b32cb53cf0537b8, type: 3}
+      propertyPath: OnTriggerValidated.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4461392086705555314, guid: 93d3273fd360ea042b32cb53cf0537b8, type: 3}
@@ -11029,11 +11042,19 @@ PrefabInstance:
       value: ChangeScene
       objectReference: {fileID: 0}
     - target: {fileID: 4461392086705555314, guid: 93d3273fd360ea042b32cb53cf0537b8, type: 3}
+      propertyPath: OnTriggerValidated.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ChangeScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461392086705555314, guid: 93d3273fd360ea042b32cb53cf0537b8, type: 3}
       propertyPath: OnTriggerValidated.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: RvSdk.Component.NetworkSound, com.artanim.common
       objectReference: {fileID: 0}
     - target: {fileID: 4461392086705555314, guid: 93d3273fd360ea042b32cb53cf0537b8, type: 3}
       propertyPath: OnTriggerValidated.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: MoveToNewScene, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461392086705555314, guid: 93d3273fd360ea042b32cb53cf0537b8, type: 3}
+      propertyPath: OnTriggerValidated.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
       value: MoveToNewScene, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4461392086705555314, guid: 93d3273fd360ea042b32cb53cf0537b8, type: 3}
@@ -11045,7 +11066,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4461392086705555314, guid: 93d3273fd360ea042b32cb53cf0537b8, type: 3}
+      propertyPath: OnTriggerValidated.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461392086705555314, guid: 93d3273fd360ea042b32cb53cf0537b8, type: 3}
       propertyPath: OnTriggerValidated.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461392086705555314, guid: 93d3273fd360ea042b32cb53cf0537b8, type: 3}
+      propertyPath: OnTriggerValidated.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []

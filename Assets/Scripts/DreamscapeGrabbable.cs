@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Artanim.Data;
 using RvSdk.Avatar;
 using RvSdk.Component;
 using RvSdk.Controller;
@@ -79,9 +80,7 @@ public class DreamscapeGrabbable : MonoBehaviour
     bool _hasGripAttach;
     bool _pendingInitialGrabSnap;
     Vector3 _twistAxisAtGrab;
-    bool _transformRegistered;
-
-    static readonly HashSet<string> RegisteredTransformIds = new HashSet<string>();
+    readonly Dictionary<Guid, SyncedTransformRegistration> _transformRegistrations = new Dictionary<Guid, SyncedTransformRegistration>();
 
     struct HandAnchorCache
     {
@@ -117,6 +116,9 @@ public class DreamscapeGrabbable : MonoBehaviour
 
     void OnEnable()
     {
+        SyncedTransformController.OnSyncedTransformRegistrationAdded += OnTransformRegistrationAdded;
+        SyncedTransformController.OnSyncedTransformRegistrationRemoved += OnTransformRegistrationRemoved;
+
         if (_stateSync != null)
             _stateSync.OnValueChanged.AddListener(OnStateChanged);
 
@@ -137,6 +139,11 @@ public class DreamscapeGrabbable : MonoBehaviour
 
         if (_isGrabbedLocally)
             EndGrabLocal();
+
+        ReleaseTransformRegistration();
+        SyncedTransformController.OnSyncedTransformRegistrationAdded -= OnTransformRegistrationAdded;
+        SyncedTransformController.OnSyncedTransformRegistrationRemoved -= OnTransformRegistrationRemoved;
+        _transformRegistrations.Clear();
     }
 
     void Update()
@@ -208,6 +215,7 @@ public class DreamscapeGrabbable : MonoBehaviour
         if (!_isGrabbedLocally || !NetworkGate.IsInitialized || !NetworkGate.IsClient)
             return;
 
+        EnsureTransformRegistered();
         // move the object in physics step while this client is the transform source
         UpdateHeldPose();
     }
@@ -287,6 +295,9 @@ public class DreamscapeGrabbable : MonoBehaviour
 
     void OnStateChanged(int newValue)
     {
+        if (newValue != PlaceableObjectNetworkState.Free && !IsLocalPlayerHash(PlaceableObjectNetworkState.GetHolderHash(newValue)))
+            ReleaseTransformRegistration();
+
         if (PlaceableObjectNetworkState.IsPlaced(newValue))
         {
             if (_isGrabbedLocally)
@@ -510,7 +521,7 @@ public class DreamscapeGrabbable : MonoBehaviour
 
     void EnsureTransformRegistered()
     {
-        if (_transformRegistered || _syncedTransform == null)
+        if (_syncedTransform == null)
             return;
 
         if (!NetworkGate.IsInitialized || !NetworkGate.IsClient)
@@ -520,16 +531,49 @@ public class DreamscapeGrabbable : MonoBehaviour
         if (string.IsNullOrEmpty(transformId))
             return;
 
-        if (RegisteredTransformIds.Contains(transformId))
-        {
-            _transformRegistered = true;
+        var controller = SyncedTransformController.Instance;
+        if (controller == null || !controller.IsInitialized || controller.IsRegisteredByMe(transformId))
             return;
-        }
 
         // Register at grab time so local pre-game moves (note raise, puzzle lift) are not overwritten by sync.
         _syncedTransform.Register(true);
-        RegisteredTransformIds.Add(transformId);
-        _transformRegistered = true;
+    }
+
+    void ReleaseTransformRegistration()
+    {
+        if (_syncedTransform == null || !NetworkGate.IsInitialized)
+            return;
+
+        var controller = SyncedTransformController.Instance;
+        if (controller != null && controller.IsInitialized && controller.IsRegisteredByMe(_syncedTransform.Id))
+            controller.UnregisterTransform(_syncedTransform);
+    }
+
+    void OnTransformRegistrationAdded(SyncedTransformRegistration registration)
+    {
+        if (_syncedTransform != null && registration.ObjectId == _syncedTransform.Id)
+            _transformRegistrations[registration.OwnerId] = registration;
+    }
+
+    void OnTransformRegistrationRemoved(SyncedTransformRegistration registration)
+    {
+        if (_syncedTransform == null || registration.ObjectId != _syncedTransform.Id)
+            return;
+
+        if (_transformRegistrations.TryGetValue(registration.OwnerId, out var current) && ReferenceEquals(current, registration))
+            _transformRegistrations.Remove(registration.OwnerId);
+
+        if (_syncedTransform.SmoothingContext != null || _syncedTransform.SyncedTransformSmoothingSO == null)
+            return;
+
+        foreach (var remaining in _transformRegistrations.Values)
+        {
+            if (remaining.OwnerId == NetworkGate.NetworkGuid)
+                continue;
+
+            _syncedTransform.UpdateSmoothing(_syncedTransform.SyncedTransformSmoothingSO, remaining);
+            break;
+        }
     }
 
     bool ShouldRelease()

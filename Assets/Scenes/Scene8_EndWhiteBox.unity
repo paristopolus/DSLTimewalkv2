@@ -3565,6 +3565,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 1422440702}
+          m_TargetAssemblyTypeName: WhiteBoxInstrumentFade, Assembly-CSharp
+          m_MethodName: BeginFade
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 1426091007}
@@ -13130,6 +13142,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1422440700}
   - component: {fileID: 1422440701}
+  - component: {fileID: 1422440702}
   m_Layer: 0
   m_Name: Instruments
   m_TagString: Untagged
@@ -13184,6 +13197,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1422440702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422440699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a401c349b3ef4d33825d81b107b6bf52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeline: {fileID: 503592707}
+  instrumentsRoot: {fileID: 1422440700}
+  instrumentGroup: {fileID: 24300000, guid: efb22932d82641aaaf465171bc19a208, type: 2}
+  silentAtTimelineSeconds: 74
 --- !u!1 &1426091006
 GameObject:
   m_ObjectHideFlags: 0

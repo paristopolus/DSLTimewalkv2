@@ -3350,7 +3350,6 @@ MonoBehaviour:
   - {fileID: 1417603398}
   - {fileID: 975424363}
   moveSceneScript: {fileID: 2024339136}
-  completeGame: 0
 --- !u!320 &503592705
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -4375,7 +4374,7 @@ MonoBehaviour:
   leftAttachPoint: {fileID: 1543545773}
   rightAttachPoint: {fileID: 1636394407}
   localAttachOffset: {x: 0, y: 0, z: 0}
-  localAttachEuler: {x: 0, y: 0, z: 0}
+  localAttachEuler: {x: 0, y: 180, z: 0}
   matchHandRotation: 1
   useGravityWhenReleased: 0
   onGrabbed:

@@ -126,7 +126,10 @@ public class DreamscapeGrabbable : MonoBehaviour
             _serverTrigger.OnTriggerWithArg.AddListener(HandleServerTriggerWithArg);
 
         if (IsPlaced)
+        {
             _placementLocked = true;
+            StopPlacedTransformSync();
+        }
     }
 
     void OnDisable()
@@ -295,6 +298,9 @@ public class DreamscapeGrabbable : MonoBehaviour
 
     void OnStateChanged(int newValue)
     {
+        if (PlaceableObjectNetworkState.IsPlaced(newValue))
+            StopPlacedTransformSync();
+
         if (newValue != PlaceableObjectNetworkState.Free && !IsLocalPlayerHash(PlaceableObjectNetworkState.GetHolderHash(newValue)))
             ReleaseTransformRegistration();
 
@@ -413,7 +419,7 @@ public class DreamscapeGrabbable : MonoBehaviour
         _hasGripAttach = false;
         _pendingInitialGrabSnap = false;
         _syncedTransform.IsSource = false;
-        _syncedTransform.SyncRotation = _syncedRotationWhileHeld;
+        _syncedTransform.SyncRotation = !IsPlaced && _syncedRotationWhileHeld;
 
         if (_allowImmediateRegrabOnRelease)
         {
@@ -551,8 +557,16 @@ public class DreamscapeGrabbable : MonoBehaviour
 
     void OnTransformRegistrationAdded(SyncedTransformRegistration registration)
     {
-        if (_syncedTransform != null && registration.ObjectId == _syncedTransform.Id)
-            _transformRegistrations[registration.OwnerId] = registration;
+        if (_syncedTransform == null || registration.ObjectId != _syncedTransform.Id)
+            return;
+
+        if (IsPlaced)
+        {
+            StopPlacedTransformSync();
+            return;
+        }
+
+        _transformRegistrations[registration.OwnerId] = registration;
     }
 
     void OnTransformRegistrationRemoved(SyncedTransformRegistration registration)
@@ -563,7 +577,7 @@ public class DreamscapeGrabbable : MonoBehaviour
         if (_transformRegistrations.TryGetValue(registration.OwnerId, out var current) && ReferenceEquals(current, registration))
             _transformRegistrations.Remove(registration.OwnerId);
 
-        if (_syncedTransform.SmoothingContext != null || _syncedTransform.SyncedTransformSmoothingSO == null)
+        if (IsPlaced || _syncedTransform.SmoothingContext != null || _syncedTransform.SyncedTransformSmoothingSO == null)
             return;
 
         foreach (var remaining in _transformRegistrations.Values)
@@ -574,6 +588,18 @@ public class DreamscapeGrabbable : MonoBehaviour
             _syncedTransform.UpdateSmoothing(_syncedTransform.SyncedTransformSmoothingSO, remaining);
             break;
         }
+    }
+
+    void StopPlacedTransformSync()
+    {
+        if (_syncedTransform == null)
+            return;
+
+        _syncedTransform.IsSource = false;
+        _syncedTransform.SyncPosition = false;
+        _syncedTransform.SyncRotation = false;
+        _syncedTransform.SyncScale = false;
+        _transformRegistrations.Clear();
     }
 
     bool ShouldRelease()
@@ -787,6 +813,8 @@ public class DreamscapeGrabbable : MonoBehaviour
         {
             _rigidbody.isKinematic = true;
             _rigidbody.useGravity = false;
+            _rigidbody.position = position;
+            _rigidbody.rotation = rotation;
         }
 
         if (lockPlacement)

@@ -32,6 +32,7 @@ public class PlaceableObject : MonoBehaviour
     float _placeRequestTime;
     bool _stateSyncSubscribed;
     int _appliedPlacedValue = PlaceableObjectNetworkState.Free;
+    PlacementZone _appliedZone;
 
     public string PlaceableId => placeableId;
     // reads placed state from the shared DreamscapeGrabbable.stateSync integer
@@ -112,6 +113,14 @@ public class PlaceableObject : MonoBehaviour
             return;
 
         TrySnapWhileHeld();
+    }
+
+    void LateUpdate()
+    {
+        if (!IsPlaced || _appliedZone == null)
+            return;
+
+        transform.SetPositionAndRotation(_appliedZone.SnapPosition, _appliedZone.SnapRotation);
     }
 
     void TrySnapWhileHeld()
@@ -233,6 +242,7 @@ public class PlaceableObject : MonoBehaviour
             return false;
 
         grabbable.SnapToWorldPose(zone.SnapPosition, zone.SnapRotation);
+        _appliedZone = zone;
         _appliedPlacedValue = placedValue;
         return true;
     }

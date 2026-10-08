@@ -96,7 +96,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: ffb32bdeb206a734eb74bb9b3eae0c0b, type: 2}
+  m_LightingDataAsset: {fileID: 112000004, guid: 63a73c3526207d1459f9f885b9bc6609, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 1ac3c72f8798f064aa0d732934a57826, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -11778,7 +11778,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: da8720719b6befa4a92b3787cb0de69c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.75
+  m_Volume: 0.65
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -15365,7 +15365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8410865590635604160, guid: 17f8eecf5d03e264b95deb933b2f2262, type: 3}
       propertyPath: m_Volume
-      value: 0.75
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 8410865590635604160, guid: 17f8eecf5d03e264b95deb933b2f2262, type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value

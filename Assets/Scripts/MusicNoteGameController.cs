@@ -5,6 +5,7 @@ using System.Linq;
 // using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Playables;
+using RvSdk.Component;
 // using UnityEngine.XR.Interaction.Toolkit.Interactors;
 // using UnityEngine.XR.Interaction.Toolkit;
 
@@ -20,10 +21,7 @@ public class MusicNoteGameController : MonoBehaviour
     private AudioClip correctClip;
 
     [SerializeField]
-    private AudioClip finishClip;
-
-    [SerializeField]
-    private float finishVolume = 0.5f;
+    private NetworkSound finishClipAudio;
 
     [SerializeField]
     private GameObject musicStaffGame;
@@ -46,8 +44,6 @@ public class MusicNoteGameController : MonoBehaviour
 
     [Header("Notes")]
     public List<GameObject> musicNoteSockets;
-
-    private AudioSource audiosource;
 
     [HideInInspector]
     public int endGameTriggerCount = 7;//replaced later with count of socket list
@@ -77,7 +73,6 @@ public class MusicNoteGameController : MonoBehaviour
 
     void Start()
     {
-        audiosource = GetComponent<AudioSource>();
         playableDirectorFinish = GetComponent<PlayableDirector>();
 
         endGameTriggerCount = musicNoteSockets.Count;
@@ -147,15 +142,16 @@ public class MusicNoteGameController : MonoBehaviour
     IEnumerator WaitForEndScene()
     {
         babyAudioSource.Stop();
-        audiosource.clip = finishClip;
-        audiosource.volume = finishVolume;
-        audiosource.Play();
+        if (finishClipAudio != null)
+            finishClipAudio.PlayOnce(0);
+        else
+            Debug.LogWarning("Assign FinishClipAudio to the music note game controller.", this);
         foreach (var item in gameFinishObjects)
         {
             item.gameObject.SetActive(true);
         }
 
-        yield return new WaitForSeconds(5); //wait the length of the finishclip clip
+        yield return new WaitForSeconds(5); // Allow the finish celebration before starting the timeline.
 
 
         DestroyMusicNotesServerRpc(); //Remove musical notes and staff

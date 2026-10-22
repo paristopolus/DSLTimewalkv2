@@ -961,7 +961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Weight: 1
+  m_Weight: 0.5
   m_Data:
     m_ConstrainedObject: {fileID: 1872225046}
     m_SourceObjects:
@@ -6479,8 +6479,6 @@ PlayableDirector:
     value: {fileID: 1309866925}
   - key: {fileID: 8436140069312402888, guid: 06e5f3add07d6ce41860b29f4329d9e2, type: 2}
     value: {fileID: 1914652833}
-  - key: {fileID: -2335206559348246854, guid: 06e5f3add07d6ce41860b29f4329d9e2, type: 2}
-    value: {fileID: 1309866925}
   - key: {fileID: 1034088369416275876, guid: 06e5f3add07d6ce41860b29f4329d9e2, type: 2}
     value: {fileID: 824588553}
   - key: {fileID: 5281658399482440305, guid: 06e5f3add07d6ce41860b29f4329d9e2, type: 2}
@@ -6491,6 +6489,8 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 2904241297563370263, guid: 06e5f3add07d6ce41860b29f4329d9e2, type: 2}
     value: {fileID: 824588552}
+  - key: {fileID: 4018632727587899023, guid: 06e5f3add07d6ce41860b29f4329d9e2, type: 2}
+    value: {fileID: 1309866925}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1169055960
@@ -9880,11 +9880,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7047863949698204833, guid: a67804273fec3fb4e90bee96933a2d16, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.196
+      value: 0.211
       objectReference: {fileID: 0}
     - target: {fileID: 7047863949698204833, guid: a67804273fec3fb4e90bee96933a2d16, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.235
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 7047863949698204833, guid: a67804273fec3fb4e90bee96933a2d16, type: 3}
       propertyPath: m_LocalRotation.w

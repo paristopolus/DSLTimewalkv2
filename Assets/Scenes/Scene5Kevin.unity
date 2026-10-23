@@ -5602,8 +5602,9 @@ GameObject:
   - component: {fileID: 1093560871}
   - component: {fileID: 1093560870}
   - component: {fileID: 1093560869}
+  - component: {fileID: 1093560872}
   m_Layer: 0
-  m_Name: tmp camera
+  m_Name: tmp_anim_camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5617,13 +5618,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093560866}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.05757574, y: 0.6721884, z: -0.052506197, w: 0.7362683}
-  m_LocalPosition: {x: -4.36951, y: -0.0789181, z: -1.3935747}
+  m_LocalRotation: {x: 0.054312192, y: 0.59621924, z: -0.04051399, w: 0.7999571}
+  m_LocalPosition: {x: -1.940337, y: 0.3576849, z: -0.7936864}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 55960012}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 3.044486, y: 28.96431, z: 356.1892}
 --- !u!114 &1093560869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5694,7 +5695,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 20.78461
+  m_FocalLength: 17.9
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -5709,7 +5710,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 67.675095
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -5727,6 +5728,27 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!95 &1093560872
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093560866}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1137114594
 GameObject:
   m_ObjectHideFlags: 0
@@ -6489,6 +6511,8 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 2904241297563370263, guid: 06e5f3add07d6ce41860b29f4329d9e2, type: 2}
     value: {fileID: 824588552}
+  - key: {fileID: -6777269970548942354, guid: 06e5f3add07d6ce41860b29f4329d9e2, type: 2}
+    value: {fileID: 1093560872}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &1169055960

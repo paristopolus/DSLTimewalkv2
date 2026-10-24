@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 114000011120585780}
   - component: {fileID: 11478526}
   - component: {fileID: 114132025748771036}
+  - component: {fileID: 1308378904272234533}
+  - component: {fileID: 2679280875589359096}
   m_Layer: 21
   m_Name: PFB_Jack
   m_TagString: Untagged
@@ -86,6 +88,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AvatarVisuals:
   - {fileID: 1000010207090536}
+--- !u!114 &1308378904272234533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d26c8181a483dd4197c37c75fad5f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftGripPose: {fileID: 11400000, guid: c0f52a39702b49e4ea6b0ad3c263b45e, type: 2}
+  rightGripPose: {fileID: 11400000, guid: d8362fc46c044744a8515aa6248cc09b, type: 2}
+  leftHand: {fileID: 0}
+  rightHand: {fileID: 0}
+  blendInSeconds: 0.12
+  blendOutSeconds: 0.15
+--- !u!114 &2679280875589359096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 440626fb27e692d42ae71212dfabd791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &104218
 GameObject:
   m_ObjectHideFlags: 0

@@ -76,6 +76,8 @@ public class DreamscapeClapGrabbable : MonoBehaviour
     bool _isGrabbedLocally;
     bool _placementLocked;
     HumanBodyBones _activeHand = HumanBodyBones.LastBone;
+    AvatarGrabPoseOverride _grabPoseOverride;
+    readonly GrabPoseNetworkBinding _remoteGrabPose = new GrabPoseNetworkBinding();
     HumanBodyBones _pendingGrabHand = HumanBodyBones.LastBone;
     float _clapGraceTimer;
     bool _handsWereApart;
@@ -126,6 +128,8 @@ public class DreamscapeClapGrabbable : MonoBehaviour
 
     void OnDisable()
     {
+        _remoteGrabPose.Clear(this);
+        GrabPoseNetworkBinding.ResetOnServer(_stateSync);
         if (_stateSync != null)
             _stateSync.OnValueChanged.RemoveListener(OnStateChanged);
 
@@ -138,6 +142,7 @@ public class DreamscapeClapGrabbable : MonoBehaviour
 
     void Update()
     {
+        _remoteGrabPose.Update(this, _stateSync);
         if (_isGrabbedLocally && _clapGraceTimer > 0f)
             _clapGraceTimer -= Time.deltaTime;
 
@@ -249,6 +254,9 @@ public class DreamscapeClapGrabbable : MonoBehaviour
         if (!NetworkController.IsServer || avatar == null)
             return;
 
+        if (GrabPoseNetworkBinding.HandleReport(argument, avatar, _stateSync))
+            return;
+
         if (_placementLocked || IsPlaced)
             return;
 
@@ -265,6 +273,7 @@ public class DreamscapeClapGrabbable : MonoBehaviour
             return;
 
         // player id hash becomes the held state until release or placement
+        GrabPoseNetworkBinding.ResetOnServer(_stateSync);
         _stateSync.Value = avatar.PlayerId.GetHashCode();
     }
 
@@ -276,6 +285,7 @@ public class DreamscapeClapGrabbable : MonoBehaviour
         if (_stateSync.Value != avatar.PlayerId.GetHashCode())
             return;
 
+        GrabPoseNetworkBinding.ResetOnServer(_stateSync);
         _stateSync.Value = HolderNone;
     }
 
@@ -382,12 +392,17 @@ public class DreamscapeClapGrabbable : MonoBehaviour
         _regrabBlockTimer = 0f;
         _mustLeaveBeforeRegrab = false;
 
+        _grabPoseOverride = AvatarGrabPoseOverride.FindForLocalPlayer();
+        _grabPoseOverride?.BeginGrip(_activeHand, this);
+        GrabPoseNetworkBinding.Report(_serverTrigger, _activeHand);
         onGrabbed.Invoke();
         UpdateHeldPose();
     }
 
     void EndGrabLocal()
     {
+        _grabPoseOverride?.EndGrip(_activeHand, this);
+        _grabPoseOverride = null;
         if (_activeHand != HumanBodyBones.LastBone)
             LocalHandOccupancy.Unregister(_activeHand, this);
 

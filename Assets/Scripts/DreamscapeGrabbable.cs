@@ -69,6 +69,8 @@ public class DreamscapeGrabbable : MonoBehaviour
     bool _isGrabbedLocally;
     bool _placementLocked;
     HumanBodyBones _activeHand = HumanBodyBones.LastBone;
+    AvatarGrabPoseOverride _grabPoseOverride;
+    readonly GrabPoseNetworkBinding _remoteGrabPose = new GrabPoseNetworkBinding();
     HumanBodyBones _pendingGrabHand = HumanBodyBones.LastBone;
     float _regrabBlockTimer;
     bool _mustLeaveBeforeRegrab;
@@ -134,6 +136,8 @@ public class DreamscapeGrabbable : MonoBehaviour
 
     void OnDisable()
     {
+        _remoteGrabPose.Clear(this);
+        GrabPoseNetworkBinding.ResetOnServer(_stateSync);
         if (_stateSync != null)
             _stateSync.OnValueChanged.RemoveListener(OnStateChanged);
 
@@ -151,6 +155,8 @@ public class DreamscapeGrabbable : MonoBehaviour
 
     void Update()
     {
+        // Must run on the server and observing clients as well as the local grabber.
+        _remoteGrabPose.Update(this, _stateSync);
         if (!_isGrabbedLocally && _regrabBlockTimer > 0f)
             _regrabBlockTimer -= Time.deltaTime;
 
@@ -264,6 +270,9 @@ public class DreamscapeGrabbable : MonoBehaviour
         if (!NetworkController.IsServer || avatar == null)
             return;
 
+        if (GrabPoseNetworkBinding.HandleReport(argument, avatar, _stateSync))
+            return;
+
         if (_placementLocked || IsPlaced)
             return;
 
@@ -278,10 +287,14 @@ public class DreamscapeGrabbable : MonoBehaviour
     {
         if (_placementLocked || IsPlaced)
             return;
+        // Repeated requests from the current holder must not erase its reported grip.
+        if (_stateSync.Value == avatar.PlayerId.GetHashCode())
+            return;
 
         // Reassign directly, so the old holder detaches and the new holder attaches
         // through OnStateChanged without an intermediate dropped state.
         // player id hash becomes the held state until release or placement
+        GrabPoseNetworkBinding.ResetOnServer(_stateSync);
         _stateSync.Value = avatar.PlayerId.GetHashCode();
     }
 
@@ -293,6 +306,7 @@ public class DreamscapeGrabbable : MonoBehaviour
         if (_stateSync.Value != avatar.PlayerId.GetHashCode())
             return;
 
+        GrabPoseNetworkBinding.ResetOnServer(_stateSync);
         _stateSync.Value = HolderNone;
     }
 
@@ -404,12 +418,17 @@ public class DreamscapeGrabbable : MonoBehaviour
         _mustLeaveBeforeRegrab = false;
         _allowImmediateRegrabOnRelease = false;
 
+        _grabPoseOverride = AvatarGrabPoseOverride.FindForLocalPlayer();
+        _grabPoseOverride?.BeginGrip(_activeHand, this);
+        GrabPoseNetworkBinding.Report(_serverTrigger, _activeHand);
         onGrabbed.Invoke();
         UpdateHeldPose();
     }
 
     void EndGrabLocal()
     {
+        _grabPoseOverride?.EndGrip(_activeHand, this);
+        _grabPoseOverride = null;
         if (_activeHand != HumanBodyBones.LastBone)
             LocalHandOccupancy.Unregister(_activeHand, this);
 

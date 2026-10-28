@@ -12321,7 +12321,7 @@ MonoBehaviour:
   ActivateOnAllAvatars: 1
   MinAvatarCount: 1
   TimeToValidate: 0
-  ActivationDelay: 0
+  ActivationDelay: 1
   DeactivationDelay: 0
   OnTriggerValidated:
     m_PersistentCalls:
@@ -12721,7 +12721,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 23c8b6264fd4f70468fe405ac795b2c6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9fcacaca085764f4396dea8013799ac0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1

@@ -20,7 +20,7 @@ MonoBehaviour:
   ExperienceSetupTemplate: {fileID: 0}
   ConstructSceneName: Construct
   ReadyForSessionMode: 0
-  DefaultChairTemplate: {fileID: 114386471277789834, guid: d761899fc65500341ad0235954c3d736, type: 3}
+  DefaultChairTemplate: {fileID: 0}
   DisableStandalonePickupables: 1
   StandaloneAvatarTemplate: {fileID: 0}
   DefaultSceneLoadingType: 1
@@ -34,7 +34,7 @@ MonoBehaviour:
   TextDelimiter: ','
   ObserverSubtitleDisplayer: {fileID: 1599689829469852, guid: 8892d5ea3ed70e44cb9db8d59bf8b8c1, type: 3}
   VRSubtitleDisplayer: {fileID: 1599689829469852, guid: b648cb2a578f8a3409d5b190fcc4af4b, type: 3}
-  EnableSessionIntro: 1
+  EnableSessionIntro: 0
   WakeUpAndDreamClip: {fileID: 8300000, guid: 0aa386453ee66a641b49e35bb394f835, type: 3}
   WelcomeToDreamscapeClip: {fileID: 8300000, guid: 4b6a9e7d0e36e8f4d897708f14868bf9, type: 3}
   SessionIntroAudioSourceTemplate: {fileID: 0}

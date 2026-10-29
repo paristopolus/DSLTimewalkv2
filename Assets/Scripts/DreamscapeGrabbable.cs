@@ -42,6 +42,8 @@ public class DreamscapeGrabbable : MonoBehaviour
     [SerializeField] float grabDwellSeconds = 0.15f;
     // after drop, ignore proximity grab for this long unless ForceReleaseAllowingRegrab
     [SerializeField] float regrabBlockSeconds = 0.5f;
+    [Tooltip("Allow another player to take this object while it is held. When disabled, it must be released before another player can grab it.")]
+    [SerializeField] bool allowPassingBetweenPlayers = true;
 
     [Header("Attach")]
     [SerializeField] Transform leftAttachPoint;
@@ -172,8 +174,8 @@ public class DreamscapeGrabbable : MonoBehaviour
         }
 
         // Wait for local attachment if ownership has already been assigned to us.
-        // Objects held by another player can be taken with an available hand.
-        if (IsLocalPlayerHash(HolderHash))
+        // Objects held by another player can only be taken when passing is enabled.
+        if (IsLocalPlayerHash(HolderHash) || (!allowPassingBetweenPlayers && IsHeldByAnyone))
         {
             _dwellTimer = 0f;
             return;
@@ -249,6 +251,9 @@ public class DreamscapeGrabbable : MonoBehaviour
         if (_placementLocked || IsPlaced || IsLocalPlayerHash(HolderHash))
             return;
 
+        if (!allowPassingBetweenPlayers && IsHeldByAnyone)
+            return;
+
         // Recheck the requesting hand before sending a pickup or takeover.
         if (!IsHandAllowed(_pendingGrabHand)
             || !LocalHandOccupancy.IsHandAvailable(_pendingGrabHand)
@@ -289,6 +294,10 @@ public class DreamscapeGrabbable : MonoBehaviour
             return;
         // Repeated requests from the current holder must not erase its reported grip.
         if (_stateSync.Value == avatar.PlayerId.GetHashCode())
+            return;
+
+        // Enforce passing on the server too, including requests sent before a pickup.
+        if (!allowPassingBetweenPlayers && IsHeldByAnyone)
             return;
 
         // Reassign directly, so the old holder detaches and the new holder attaches

@@ -95,15 +95,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100374}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d26c8181a483dd4197c37c75fad5f6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   leftGripPose: {fileID: 11400000, guid: c0f52a39702b49e4ea6b0ad3c263b45e, type: 2}
   rightGripPose: {fileID: 11400000, guid: d8362fc46c044744a8515aa6248cc09b, type: 2}
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
+  leftHand: {fileID: 45495407667842472}
+  rightHand: {fileID: 236899954883214102}
   blendInSeconds: 0.12
   blendOutSeconds: 0.15
 --- !u!114 &2679280875589359096
@@ -113,7 +113,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100374}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 440626fb27e692d42ae71212dfabd791, type: 3}
   m_Name: 
@@ -2139,6 +2139,7 @@ GameObject:
   - component: {fileID: 54000012892671632}
   - component: {fileID: 114778348878324058}
   - component: {fileID: 136779092740203034}
+  - component: {fileID: 45495407667842472}
   m_Layer: 21
   m_Name: mixamorig:LeftHand
   m_TagString: PlayerHands
@@ -2230,6 +2231,20 @@ CapsuleCollider:
   m_Height: 0.2
   m_Direction: 1
   m_Center: {x: 0, y: 0.1, z: 0}
+--- !u!114 &45495407667842472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012337000614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 365808b5587fdd74481d35d742312c24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avatarHandDefinition: {fileID: 11400000, guid: 23cc35010c929a946bb0c556e4584dc4, type: 2}
+  handedness: 1
 --- !u!1 &1000012360983636
 GameObject:
   m_ObjectHideFlags: 0
@@ -2902,6 +2917,7 @@ GameObject:
   - component: {fileID: 54000010649883514}
   - component: {fileID: 114006722691030762}
   - component: {fileID: 136095534742947256}
+  - component: {fileID: 236899954883214102}
   m_Layer: 21
   m_Name: mixamorig:RightHand
   m_TagString: PlayerHands
@@ -2993,6 +3009,20 @@ CapsuleCollider:
   m_Height: 0.2
   m_Direction: 1
   m_Center: {x: 0, y: 0.1, z: 0}
+--- !u!114 &236899954883214102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013439114828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 365808b5587fdd74481d35d742312c24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  avatarHandDefinition: {fileID: 11400000, guid: 23cc35010c929a946bb0c556e4584dc4, type: 2}
+  handedness: 2
 --- !u!1 &1000013479417154
 GameObject:
   m_ObjectHideFlags: 0

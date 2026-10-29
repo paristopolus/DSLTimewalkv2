@@ -2055,6 +2055,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   regrabBlockSeconds: 0.5
+  allowPassingBetweenPlayers: 0
   leftAttachPoint: {fileID: 1296968522}
   rightAttachPoint: {fileID: 1296968522}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -4057,6 +4058,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   regrabBlockSeconds: 0.5
+  allowPassingBetweenPlayers: 0
   leftAttachPoint: {fileID: 719633998}
   rightAttachPoint: {fileID: 719633998}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -4962,6 +4964,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   regrabBlockSeconds: 0.5
+  allowPassingBetweenPlayers: 0
   leftAttachPoint: {fileID: 109576366}
   rightAttachPoint: {fileID: 182367003}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -8915,6 +8918,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   regrabBlockSeconds: 0.5
+  allowPassingBetweenPlayers: 0
   leftAttachPoint: {fileID: 644076969}
   rightAttachPoint: {fileID: 309508257}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -10511,6 +10515,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   regrabBlockSeconds: 0.5
+  allowPassingBetweenPlayers: 0
   leftAttachPoint: {fileID: 2320251}
   rightAttachPoint: {fileID: 2320251}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -10680,6 +10685,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   regrabBlockSeconds: 0.5
+  allowPassingBetweenPlayers: 0
   leftAttachPoint: {fileID: 7654599522796380644}
   rightAttachPoint: {fileID: 7654599522796380644}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -11558,6 +11564,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   regrabBlockSeconds: 0.5
+  allowPassingBetweenPlayers: 0
   leftAttachPoint: {fileID: 1476597009}
   rightAttachPoint: {fileID: 1476597009}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -11929,6 +11936,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   regrabBlockSeconds: 0.5
+  allowPassingBetweenPlayers: 0
   leftAttachPoint: {fileID: 1924929722}
   rightAttachPoint: {fileID: 1924929722}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -14602,6 +14610,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   regrabBlockSeconds: 0.5
+  allowPassingBetweenPlayers: 0
   leftAttachPoint: {fileID: 398157168017744184}
   rightAttachPoint: {fileID: 398157168017744184}
   localAttachOffset: {x: 0, y: 0, z: 0}
@@ -14959,6 +14968,7 @@ MonoBehaviour:
   grabRadius: 0.4
   grabDwellSeconds: 0.15
   regrabBlockSeconds: 0.5
+  allowPassingBetweenPlayers: 0
   leftAttachPoint: {fileID: 6787415901349440480}
   rightAttachPoint: {fileID: 6787415901349440480}
   localAttachOffset: {x: 0, y: 0, z: 0}

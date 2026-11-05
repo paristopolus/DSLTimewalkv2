@@ -25,7 +25,6 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _ALPHAPREMULTIPLY_ON
   - _RECEIVE_SHADOWS_OFF
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
@@ -73,7 +72,7 @@ Material:
     - _AlphaFactor: 1
     - _AlphaToMask: 0
     - _Blend: 0
-    - _BlendModePreserveSpecular: 1
+    - _BlendModePreserveSpecular: 0
     - _CastShadows: 0
     - _CellCoverage: 0.267
     - _CellScale: 20
@@ -83,7 +82,7 @@ Material:
     - _Cull: 2
     - _Dissolve: 1
     - _DistanceFromcamera: 0
-    - _Distance_To_Camera: 1
+    - _Distance_To_Camera: 0.5
     - _DistortionScale: 5
     - _DistortionStrength: 1
     - _DistortionStrnegth: 0.1
@@ -97,7 +96,7 @@ Material:
     - _ReceiveShadows: 0
     - _Smoothness: 1
     - _Speed: 0.01
-    - _SrcBlend: 1
+    - _SrcBlend: 5
     - _Surface: 1
     - _Tiling: 1
     - _WorkflowMode: 1

@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e67c1af41090434ea115b899fb48bff, type: 3}
+  m_Name: Character_Creator_hand_definitionv2
+  m_EditorClassIdentifier: 
+  Handedness: 1
+  HandRetargetingModel: 2
+  LeftNeutralPose: {fileID: 11400000, guid: bab0ae005bf57ba4bb06003b8d206225, type: 2}
+  RightNeutralPose: {fileID: 11400000, guid: 216fa0827dce4164a816eacbdb314629, type: 2}
+  LeftHandBoneNames:
+  - CC_Base_L_Hand
+  - 
+  - CC_Base_L_Thumb1
+  - CC_Base_L_Thumb2
+  - CC_Base_L_Thumb3
+  - 
+  - 
+  - CC_Base_L_Index1
+  - CC_Base_L_Index2
+  - CC_Base_L_Index3
+  - 
+  - 
+  - CC_Base_L_Mid1
+  - CC_Base_L_Mid2
+  - CC_Base_L_Mid3
+  - 
+  - 
+  - CC_Base_L_Ring1
+  - CC_Base_L_Ring2
+  - CC_Base_L_Ring3
+  - 
+  - 
+  - CC_Base_L_Pinky1
+  - CC_Base_L_Pinky2
+  - CC_Base_L_Pinky3
+  - 
+  RightHandBoneNames:
+  - CC_Base_R_Hand
+  - 
+  - CC_Base_R_Thumb1
+  - CC_Base_R_Thumb2
+  - CC_Base_R_Thumb3
+  - 
+  - 
+  - CC_Base_R_Index1
+  - CC_Base_R_Index2
+  - CC_Base_R_Index3
+  - 
+  - 
+  - CC_Base_R_Mid1
+  - CC_Base_R_Mid2
+  - CC_Base_R_Mid3
+  - 
+  - 
+  - CC_Base_R_Ring1
+  - CC_Base_R_Ring2
+  - CC_Base_R_Ring3
+  - 
+  - 
+  - CC_Base_R_Pinky1
+  - CC_Base_R_Pinky2
+  - CC_Base_R_Pinky3
+  - 

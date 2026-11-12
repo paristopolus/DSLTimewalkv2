@@ -3,12 +3,14 @@ public static class PlaceableObjectNetworkState
 {
     // nobody holding, not placed
     public const int Free = -1;
+    // Free to grab, but held at the original pose on every peer until picked up.
+    public const int ReturnedHome = -2;
 
     // placed values live in this low int range so they don't collide with holder hashes
     public const int PlacedBandStart = int.MinValue;
     public const int PlacedBandEnd = int.MinValue + 1_000_000;
 
-    public static bool IsFree(int value) => value == Free;
+    public static bool IsFree(int value) => value == Free || value == ReturnedHome;
 
     public static bool IsPlaced(int value) => value >= PlacedBandStart && value <= PlacedBandEnd;
 

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7014756595825508749}
+  - component: {fileID: 910000000000000000}
   - component: {fileID: 8237862715869251431}
   - component: {fileID: 6736976760894189792}
   - component: {fileID: 7042966878346624800}
@@ -107,3 +108,18 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &910000000000000000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8797797631293640795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fbf1dc837c74af49f45a913de88c292, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  blueColor: {r: 0.0341506, g: 0, b: 1, a: 1}
+  whiteColor: {r: 1, g: 1, b: 1, a: 1}
+  pulseDuration: 2

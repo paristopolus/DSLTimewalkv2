@@ -105,7 +105,7 @@ public class MoveToNewScene : MonoBehaviour
         //Debug.Log("Made it into ChangeScene");
         // HandleSceneChange();
 
-        GameController.Instance.LoadGameScene(nextSceneName, Transition.FadeWhite);
+        GameController.Instance.LoadGameScene(nextSceneName, Transition.FadeBlack);
     }
 
     private void HandleSceneChange()

@@ -1972,7 +1972,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3510378447165330468, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.588
+      value: 2.627
       objectReference: {fileID: 0}
     - target: {fileID: 3510378447165330468, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1980,7 +1980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3510378447165330468, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.504
+      value: 2.592
       objectReference: {fileID: 0}
     - target: {fileID: 3510378447165330468, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2010,6 +2010,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7512323815995134125, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7bc5350f1efa7d4418fdcf0664234b93, type: 2}
     - target: {fileID: 7788064665538658095, guid: 4739a0a4ebcef994abc66c7ba64505b7, type: 3}
       propertyPath: m_Name
       value: SkipButton

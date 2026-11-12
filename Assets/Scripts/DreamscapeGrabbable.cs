@@ -57,6 +57,13 @@ public class DreamscapeGrabbable : MonoBehaviour
     [Header("Physics")]
     [SerializeField] bool useGravityWhenReleased;
 
+    [Header("Automatic return")]
+    [Tooltip("Return to the starting position and rotation when farther away than this many meters. Zero disables automatic return.")]
+    [Min(0f)] [SerializeField] float autoReturnDistance;
+
+    Vector3 _homePosition;
+    Quaternion _homeRotation;
+
     [Header("Events")]
     public UnityEvent onGrabbed;
     public UnityEvent onReleased;
@@ -116,6 +123,8 @@ public class DreamscapeGrabbable : MonoBehaviour
         _stateSync = stateSync != null ? stateSync : GetComponent<NetworkSyncedInteger>();
         _serverTrigger = GetComponent<ClientToServerTrigger>();
         _rigidbody = GetComponent<Rigidbody>();
+        _homePosition = transform.position;
+        _homeRotation = transform.rotation;
     }
 
     void OnEnable()
@@ -231,6 +240,34 @@ public class DreamscapeGrabbable : MonoBehaviour
         UpdateHeldPose();
     }
 
+    void LateUpdate()
+    {
+        if (autoReturnDistance <= 0f || _placementLocked || !NetworkGate.IsInitialized || IsPlaced)
+            return;
+
+        // Persist the return in session state so observers and late joiners agree.
+        if (NetworkController.IsServer && StateValue != PlaceableObjectNetworkState.ReturnedHome
+            && (transform.position - _homePosition).sqrMagnitude > autoReturnDistance * autoReturnDistance)
+        {
+            GrabPoseNetworkBinding.ResetOnServer(_stateSync);
+            _stateSync.Value = PlaceableObjectNetworkState.ReturnedHome;
+        }
+
+        if (StateValue == PlaceableObjectNetworkState.ReturnedHome)
+        {
+            // Ignore any final in-flight held-pose packets until the next pickup.
+            transform.SetPositionAndRotation(_homePosition, _homeRotation);
+            if (_rigidbody != null)
+            {
+                ClearRigidbodyVelocities();
+                _rigidbody.isKinematic = true;
+                _rigidbody.useGravity = false;
+                _rigidbody.position = _homePosition;
+                _rigidbody.rotation = _homeRotation;
+            }
+        }
+    }
+
     bool CanRunLocalGrabLogic()
     {
         if (_placementLocked || IsPlaced)
@@ -321,6 +358,13 @@ public class DreamscapeGrabbable : MonoBehaviour
 
     void OnStateChanged(int newValue)
     {
+        if (newValue == PlaceableObjectNetworkState.ReturnedHome)
+        {
+            ReleaseTransformRegistration();
+            _dwellTimer = 0f;
+            _regrabBlockTimer = regrabBlockSeconds;
+            _allowImmediateRegrabOnRelease = false;
+        }
         if (PlaceableObjectNetworkState.IsPlaced(newValue))
             StopPlacedTransformSync();
 

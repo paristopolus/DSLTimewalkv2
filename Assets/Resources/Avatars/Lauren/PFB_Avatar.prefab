@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2205613378347667772}
   serializedVersion: 2
   m_LocalRotation: {x: -0.011224068, y: 0.07855859, z: 0.98599464, w: 0.14668748}
-  m_LocalPosition: {x: 0.028838687, y: 0.093182445, z: -0.0015621709}
+  m_LocalPosition: {x: 0.025, y: 0.087, z: 0.014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftGripPose: {fileID: 11400000, guid: c0f52a39702b49e4ea6b0ad3c263b45e, type: 2}
   rightGripPose: {fileID: 11400000, guid: d8362fc46c044744a8515aa6248cc09b, type: 2}
-  leftHand: {fileID: 3239565951193319122}
+  leftHand: {fileID: 2775089913606133285}
   rightHand: {fileID: 8963512234691323717}
   blendInSeconds: 0.12
   blendOutSeconds: 0.15
@@ -178,7 +178,7 @@ Transform:
   m_GameObject: {fileID: 6911647091657790180}
   serializedVersion: 2
   m_LocalRotation: {x: -0.011200125, y: -0.07857989, z: -0.98599476, w: 0.1466767}
-  m_LocalPosition: {x: -0.025841076, y: 0.09399877, z: -0.0017168131}
+  m_LocalPosition: {x: -0.022, y: 0.087, z: 0.014}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -695,7 +695,7 @@ PrefabInstance:
       addedObject: {fileID: 5871639976730077630}
     - targetCorrespondingSourceObject: {fileID: 6281250474731060128, guid: 96c5246406d073d4ab731cbb470d1e1a, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3239565951193319122}
+      addedObject: {fileID: 2775089913606133285}
     - targetCorrespondingSourceObject: {fileID: -5365721032427728427, guid: 96c5246406d073d4ab731cbb470d1e1a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5324065139569687390}
@@ -1034,7 +1034,7 @@ CapsuleCollider:
   m_Height: 0.2
   m_Direction: 1
   m_Center: {x: 0, y: 0.1, z: 0}
---- !u!114 &3239565951193319122
+--- !u!114 &2775089913606133285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

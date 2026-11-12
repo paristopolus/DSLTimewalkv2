@@ -234,16 +234,16 @@ Material:
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 0}
     - _SubsurfaceFalloff: {r: 1, g: 0.36862746, b: 0.29803923, a: 1}
-    - _WrinkleValueSet12CL: {r: 0.0000055139385, g: 0.0000055139385, b: 0, a: 0}
-    - _WrinkleValueSet12CR: {r: 0.0000055139385, g: 0.0000055139385, b: 0, a: 0.0001212634}
-    - _WrinkleValueSet1AL: {r: 0, g: 0, b: 0, a: 0}
-    - _WrinkleValueSet1AR: {r: 0, g: 0, b: 0, a: 0}
-    - _WrinkleValueSet1BL: {r: 0.00000425689, g: 0.0013128325, b: 2.8532582e-12, a: 0.0020401448}
-    - _WrinkleValueSet1BR: {r: 0, g: 0.0013128325, b: 2.8532582e-12, a: 0.0017410822}
-    - _WrinkleValueSet2L: {r: 0.00079490535, g: 0.007945789, b: 0.0018067996, a: 0.0027207038}
-    - _WrinkleValueSet2R: {r: 0.0007988494, g: 0.007988494, b: 0.000439315, a: 0}
-    - _WrinkleValueSet3DB: {r: 0.0038719235, g: 0.0020017414, b: 0.0038719235, a: 0.0020017414}
-    - _WrinkleValueSet3L: {r: 0.003168603, g: 0.003173329, b: 0.0010868701, a: 0.003878225}
-    - _WrinkleValueSet3R: {r: 0.0011422564, g: 0.0011422564, b: 0.00014129441, a: 0.0020017414}
-    - _WrinkleValueSetBCCB: {r: 0.0000033644505, g: 3.7528206e-11, b: 0, a: 0}
+    - _WrinkleValueSet12CL: {r: 0.050560642, g: 0.050560642, b: 0, a: 0.001143873}
+    - _WrinkleValueSet12CR: {r: 0.050560642, g: 0.050560642, b: 0, a: 0.001143873}
+    - _WrinkleValueSet1AL: {r: 0, g: 0.055123743, b: 0, a: 0}
+    - _WrinkleValueSet1AR: {r: 0, g: 0.055123743, b: 0, a: 0}
+    - _WrinkleValueSet1BL: {r: 0, g: 0.0053593838, b: 0, a: 0.001143873}
+    - _WrinkleValueSet1BR: {r: 0, g: 0.0053593838, b: 0, a: 0.006286588}
+    - _WrinkleValueSet2L: {r: 0, g: 0, b: 0.0018948284, a: 0.18872039}
+    - _WrinkleValueSet2R: {r: 0, g: 0, b: 0.024645016, a: 0.039316747}
+    - _WrinkleValueSet3DB: {r: 0, g: 0, b: 0, a: 0}
+    - _WrinkleValueSet3L: {r: 0.009150984, g: 0.009150984, b: 0.009150984, a: 0}
+    - _WrinkleValueSet3R: {r: 0.0568286, g: 0.10016629, b: 0.0568286, a: 0.057783592}
+    - _WrinkleValueSetBCCB: {r: 0.0017048579, g: 0.0017048579, b: 0, a: 0}
   m_BuildTextureStacks: []
